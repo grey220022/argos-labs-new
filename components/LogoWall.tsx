@@ -6,7 +6,6 @@ type Partner = {
   file: string;
   w: number;
   h: number;
-  invert?: boolean; // true for dark-on-transparent assets that need flipping on dark bg
 };
 
 const partners: readonly Partner[] = [
@@ -21,7 +20,7 @@ const partners: readonly Partner[] = [
   { name: "Alstom", file: "alstom.png", w: 328, h: 68 },
   { name: "Shift", file: "shift.png", w: 286, h: 73 },
   { name: "Solana", file: "solana.svg", w: 646, h: 96 },
-  { name: "Circle", file: "circle.avif", w: 391, h: 100, invert: true },
+  { name: "Circle", file: "circle.avif", w: 391, h: 100 },
   { name: "iExec", file: "iexec.svg", w: 111, h: 41 },
 ];
 
@@ -42,16 +41,14 @@ export default function LogoWall() {
         {partners.map((p) => (
           <div
             key={p.name}
-            className="opacity-60 grayscale transition duration-200 hover:opacity-100 hover:grayscale-0"
+            className="brightness-0 invert opacity-60 transition duration-200 hover:opacity-100 hover:brightness-100 hover:invert-0"
           >
             <Image
               src={`/images/${p.file}`}
               alt={p.name}
               width={p.w}
               height={p.h}
-              className={`h-7 w-auto select-none sm:h-8 ${
-                p.invert ? "invert" : ""
-              }`}
+              className="h-7 w-auto select-none sm:h-8"
               sizes="(max-width: 640px) 96px, 128px"
             />
           </div>
