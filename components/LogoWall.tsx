@@ -45,6 +45,9 @@ export default function LogoWall() {
       >
         Trusted by
       </p>
+      <h2 className="mt-3 max-w-3xl font-display text-xl font-semibold leading-tight tracking-tight text-fg-2 sm:text-2xl">
+        World-class partners across AI, infra, and on-chain rails.
+      </h2>
 
       <Reveal
         gap={40}

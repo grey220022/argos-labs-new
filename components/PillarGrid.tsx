@@ -63,10 +63,10 @@ export default function PillarGrid() {
         id="pillars-heading"
         className="max-w-2xl font-display text-3xl font-semibold leading-[1.05] tracking-tight text-fg sm:text-5xl"
       >
-        Four pillars. One platform.
+        Four products. Zero integration tax.
       </h2>
       <p className="mt-4 max-w-2xl text-base text-fg-3 sm:text-lg">
-        Each pillar runs independently and composes with the others. Buy any one, run all four.
+        Pick the pillar you need today. The rest stay out of your way until you want them. When you do, they&rsquo;re already wired in — same auth, same metrics, same invoice.
       </p>
 
       <Reveal
