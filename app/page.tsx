@@ -40,7 +40,7 @@ export default function Home() {
 
           <nav
             data-hero="pillars"
-            className="mt-10 flex flex-wrap items-center gap-x-3 gap-y-2 font-display text-lg sm:text-xl text-fg-2"
+            className="mt-10 flex flex-wrap items-center gap-x-3 gap-y-2 font-display text-xl sm:text-2xl text-fg-2"
             aria-label="Pillars"
           >
             {pillars.map((p, i) => (
