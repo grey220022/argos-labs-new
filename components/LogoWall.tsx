@@ -22,6 +22,9 @@ const partners: readonly Partner[] = [
   { name: "Solana", file: "solana.svg", w: 646, h: 96 },
   { name: "Circle", file: "circle.avif", w: 391, h: 100 },
   { name: "iExec", file: "iexec.svg", w: 111, h: 41 },
+  { name: "Meria", file: "meria.svg", w: 189, h: 40 },
+  { name: "Morningstar Ventures", file: "morningstar-ventures.svg", w: 173, h: 55 },
+  { name: "Cypher Capital", file: "cypher-capital.svg", w: 331, h: 51 },
 ];
 
 export default function LogoWall() {
