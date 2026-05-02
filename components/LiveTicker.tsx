@@ -11,6 +11,18 @@ const REGIONS = 4;
 
 export default function LiveTicker() {
   const [latency, setLatency] = useState(14);
+  const [atFooter, setAtFooter] = useState(false);
+
+  useEffect(() => {
+    const footer = document.querySelector("footer");
+    if (!footer) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => setAtFooter(entry.isIntersecting),
+      { rootMargin: "0px 0px -10% 0px" }
+    );
+    obs.observe(footer);
+    return () => obs.disconnect();
+  }, []);
 
   useEffect(() => {
     if (reduced()) return;
@@ -51,7 +63,9 @@ export default function LiveTicker() {
   return (
     <div
       aria-hidden
-      className="pointer-events-none fixed bottom-4 right-4 z-20 select-none font-mono text-[10px] tracking-[0.18em] text-fg-5 tabular-nums"
+      className={`pointer-events-none fixed bottom-4 right-4 z-20 select-none font-mono text-[10px] tracking-[0.18em] text-fg-5 tabular-nums transition-opacity duration-300 ${
+        atFooter ? "opacity-0" : "opacity-100"
+      }`}
     >
       build {BUILD} · {String(latency).padStart(2, "0")}ms · {REGIONS} regions running
     </div>
