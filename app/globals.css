@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+@theme {
+  /* Base — warm dark, not pure black */
+  --color-bg: #252423;
+  --color-bg-2: #2a2928;
+  --color-bg-3: #2f2e2d;
+  --color-bg-4: #353433;
+  --color-bg-5: #3a3938;
+  --color-bg-6: #3f3e3d;
+  --color-bg-7: #444342;
+
+  --color-fg: #f6f4f2;
+  --color-fg-2: #d5d3d1;
+  --color-fg-3: #b4b1af;
+  --color-fg-4: #93908e;
+  --color-fg-5: #625d5b;
+  --color-fg-6: #474543;
+  --color-fg-7: #393735;
+  --color-fg-8: #2c2a28;
+
+  /* Brand + pillar hues — each pillar owns one, scoped to its section */
+  --color-brand: #7c85ff;
+  --color-hue-agents: #7c85ff;
+  --color-hue-cloud:  #26f2d5;
+  --color-hue-growth: #ff7d36;
+  --color-hue-chain:  #b7ff54;
+
+  /* Semantic */
+  --color-success: #8dff55;
+  --color-warning: #ffcc2a;
+  --color-error:   #ff4b4b;
+  --color-info:    #4d9cff;
+
+  /* Type — DINish display+body, JetBrains Mono code */
+  --font-display: var(--font-din), system-ui, sans-serif;
+  --font-mono:    var(--font-jbmono), ui-monospace, "JetBrains Mono", monospace;
+}
+
+:root {
+  /* Motion tokens — anime.js side mirrors these in lib/motion.ts */
+  --duration-1: 100ms;
+  --duration-2: 250ms;
+  --duration-3: 500ms;
+  --duration-4: 1200ms;
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-inout: cubic-bezier(0.5, 0, 0.5, 1);
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-fg);
+  font-family: var(--font-display);
+  font-variation-settings: "wdth" 120, "wght" 450;
+}
+
+/* Pillar scoping — inside [data-pillar="x"], var(--accent) becomes that hue.
+   Outside any data-pillar, accent falls back to brand primary. */
+:root { --accent: var(--color-brand); }
+[data-pillar="agents"] { --accent: var(--color-hue-agents); }
+[data-pillar="cloud"]  { --accent: var(--color-hue-cloud); }
+[data-pillar="growth"] { --accent: var(--color-hue-growth); }
+[data-pillar="chain"]  { --accent: var(--color-hue-chain); }
