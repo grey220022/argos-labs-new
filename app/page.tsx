@@ -5,6 +5,8 @@ import AgentsSection from "@/components/pillars/AgentsSection";
 import CloudSection from "@/components/pillars/CloudSection";
 import GrowthSection from "@/components/pillars/GrowthSection";
 import BlockChainSection from "@/components/pillars/BlockChainSection";
+import ClosingBanner from "@/components/ClosingBanner";
+import Footer from "@/components/Footer";
 
 const pillars = [
   { id: "agents", name: "Agents" },
@@ -15,7 +17,8 @@ const pillars = [
 
 export default function Home() {
   return (
-    <main className="relative mx-auto min-h-dvh max-w-[1500px] px-6 py-24 sm:px-12 lg:px-24">
+    <>
+      <main className="relative mx-auto max-w-[1500px] px-6 py-24 sm:px-12 lg:px-24">
       <HeroIntro />
 
       <p
@@ -83,6 +86,10 @@ export default function Home() {
       >
         build a3f2e9c · 14ms · 4 regions running
       </div>
-    </main>
+      </main>
+
+      <ClosingBanner />
+      <Footer />
+    </>
   );
 }
