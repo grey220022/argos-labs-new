@@ -61,7 +61,7 @@ export default function AgentsSection() {
       subheading="Persistent, tool-using agents that run for minutes or hours and recover from their own failures. Built for production traffic, not demos."
     >
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1.1fr_1fr] lg:gap-12">
-        <pre className="overflow-x-auto rounded-xl border border-fg-7 bg-bg-2 p-6 font-mono text-[13px] leading-[1.6] text-fg-2">
+        <pre className="overflow-x-auto rounded-xl border border-fg-7 bg-bg-2 p-4 font-mono text-[11px] leading-[1.55] text-fg-2 sm:p-6 sm:text-[13px] sm:leading-[1.6]">
           <code>{tint(codeSample)}</code>
         </pre>
 

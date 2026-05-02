@@ -19,7 +19,7 @@ const pillars = [
 export default function Home() {
   return (
     <>
-      <main className="relative mx-auto max-w-[1500px] px-6 py-24 sm:px-12 lg:px-24">
+      <main className="relative mx-auto max-w-[1500px] px-6 py-16 sm:px-12 sm:py-24 lg:px-24">
       <HeroIntro />
 
       <div className="grid gap-12 lg:grid-cols-[1fr_minmax(0,520px)] lg:items-center lg:gap-16">
@@ -79,7 +79,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="mx-auto w-full max-w-[420px] lg:max-w-[520px]">
+        <div className="mx-auto hidden w-full max-w-[520px] lg:block">
           <HeroVisual />
         </div>
       </div>

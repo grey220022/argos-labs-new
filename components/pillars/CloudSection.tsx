@@ -37,7 +37,7 @@ export default function CloudSection() {
             key={m.label}
             className="rounded-xl border border-fg-7 bg-bg-2 p-5 sm:p-6"
           >
-            <p className="font-display text-3xl font-semibold tracking-tight text-[var(--accent)] sm:text-5xl">
+            <p className="font-display text-2xl font-semibold tracking-tight text-[var(--accent)] sm:text-5xl">
               {m.value}
             </p>
             <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.18em] text-fg-4 sm:text-xs">

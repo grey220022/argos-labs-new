@@ -63,7 +63,7 @@ export default function LiveTicker() {
   return (
     <div
       aria-hidden
-      className={`pointer-events-none fixed bottom-4 right-4 z-20 select-none font-mono text-[10px] tracking-[0.18em] text-fg-5 tabular-nums transition-opacity duration-300 ${
+      className={`pointer-events-none fixed bottom-4 right-4 z-20 hidden select-none font-mono text-[10px] tracking-[0.18em] text-fg-5 tabular-nums transition-opacity duration-300 sm:block ${
         atFooter ? "opacity-0" : "opacity-100"
       }`}
     >
