@@ -26,6 +26,13 @@ const partners: readonly Partner[] = [
   { name: "Morningstar Ventures", file: "morningstar-ventures.svg", w: 173, h: 55 },
   { name: "Cypher Capital", file: "cypher-capital.svg", w: 331, h: 51 },
   { name: "Binance", file: "binance.svg", w: 632, h: 127 },
+  { name: "Stellar", file: "stellar.svg", w: 54, h: 20 },
+  { name: "Standx", file: "standx.png", w: 388, h: 506 },
+  { name: "Creao", file: "creao.png", w: 463, h: 169 },
+  { name: "Debot", file: "debot.png", w: 992, h: 992 },
+  { name: "Tencent Cloud", file: "tencent-cloud.svg", w: 1053, h: 720 },
+  { name: "AWS", file: "aws.svg", w: 304, h: 182 },
+  { name: "OVHcloud", file: "ovhcloud.svg", w: 298, h: 47 },
 ];
 
 export default function LogoWall() {
