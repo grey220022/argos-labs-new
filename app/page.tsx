@@ -1,6 +1,10 @@
 import HeroIntro from "@/components/HeroIntro";
 import LogoWall from "@/components/LogoWall";
 import PillarGrid from "@/components/PillarGrid";
+import AgentsSection from "@/components/pillars/AgentsSection";
+import CloudSection from "@/components/pillars/CloudSection";
+import GrowthSection from "@/components/pillars/GrowthSection";
+import BlockChainSection from "@/components/pillars/BlockChainSection";
 
 const pillars = [
   { id: "agents", name: "Agents" },
@@ -67,6 +71,11 @@ export default function Home() {
 
       <LogoWall />
       <PillarGrid />
+
+      <AgentsSection />
+      <CloudSection />
+      <GrowthSection />
+      <BlockChainSection />
 
       <div
         aria-hidden
