@@ -66,7 +66,7 @@ export default function PillarGrid() {
         Four products. Zero integration tax.
       </h2>
       <p className="mt-4 max-w-2xl text-base text-fg-3 sm:text-lg">
-        Pick the pillar you need today. The rest stay out of your way until you want them. When you do, they&rsquo;re already wired in — same auth, same metrics, same invoice.
+        And the best global growth service in the pack.
       </p>
 
       <Reveal
