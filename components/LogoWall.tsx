@@ -26,7 +26,7 @@ const partners: readonly Partner[] = [
   { name: "Morningstar Ventures", file: "morningstar-ventures.svg", w: 173, h: 55 },
   { name: "Cypher Capital", file: "cypher-capital.svg", w: 331, h: 51 },
   { name: "Binance", file: "binance.svg", w: 632, h: 127 },
-  { name: "Stellar", file: "stellar.svg", w: 54, h: 20 },
+  { name: "Stellar", file: "stellar.svg", w: 631, h: 161 },
   { name: "Standx", file: "standx.png", w: 388, h: 506 },
   { name: "Creao", file: "creao.png", w: 463, h: 169 },
   { name: "Debot", file: "debot.png", w: 992, h: 992 },
