@@ -1,3 +1,5 @@
+import PressKit from "./PressKit";
+
 export default function Footer() {
   const year = new Date().getFullYear();
 
@@ -15,12 +17,23 @@ export default function Footer() {
           </address>
         </div>
 
+        <PressKit />
+
         <div className="flex flex-col gap-3 sm:items-end">
           <a
             href="mailto:contact@argoslabs.io"
-            className="font-mono text-xs uppercase tracking-[0.2em] text-fg-2 transition-colors duration-100 hover:text-brand"
+            className="mono-link font-mono text-xs uppercase tracking-[0.2em] text-fg-2 transition-colors duration-100 hover:text-brand"
           >
             contact@argoslabs.io
+          </a>
+          <a
+            href="https://www.linkedin.com/company/argos-labs"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mono-link inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-[0.2em] text-fg-2 transition-colors duration-100 hover:text-brand"
+          >
+            LinkedIn
+            <span aria-hidden className="text-fg-5">↗</span>
           </a>
           <p className="font-mono text-[10px] tracking-[0.2em] text-fg-5">
             © {year} Argos Lab. All rights reserved.

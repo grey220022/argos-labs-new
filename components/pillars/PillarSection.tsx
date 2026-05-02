@@ -1,5 +1,6 @@
 import { type ReactNode } from "react";
 import { type PillarKey } from "../PillarCard";
+import SectionSweep from "../SectionSweep";
 
 type Props = {
   pillar: PillarKey;
@@ -25,6 +26,7 @@ export default function PillarSection({
       aria-labelledby={`${id}-heading`}
       className="relative mt-32 scroll-mt-24 sm:mt-40"
     >
+      <SectionSweep />
       <div className="flex items-center gap-3">
         <span
           data-eyebrow-dot

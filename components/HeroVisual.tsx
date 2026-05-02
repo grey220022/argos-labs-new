@@ -7,6 +7,12 @@ const reduced = () =>
   typeof window !== "undefined" &&
   window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+// Mobile / low-end browsers (incl. WeChat X5) get a lighter timeline:
+// arc draw + slow rotation + center pulse — but no 88-particle drift.
+const isLowMotionViewport = () =>
+  typeof window !== "undefined" &&
+  window.matchMedia("(max-width: 699px)").matches;
+
 const SIZE = 520;
 const C = SIZE / 2;
 const R_OUTER = 240;
@@ -159,6 +165,9 @@ export default function HeroVisual() {
       }
 
       // 4. Particle drift (each fades in at start position, drifts toward center, fades out)
+      // Skipped on small viewports — 88 looping anime.js timelines are the heaviest piece
+      // and stutter on WeChat X5 / low-end Android. Static SVG circles still render.
+      if (isLowMotionViewport()) return;
       const particles = svg.querySelectorAll<SVGCircleElement>("[data-particle]");
       particles.forEach((node) => {
         const sx = parseFloat(node.dataset.startx ?? "0");

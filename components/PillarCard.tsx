@@ -1,4 +1,5 @@
 import Link from "next/link";
+import HoverTrace from "./HoverTrace";
 
 export type PillarKey = "agents" | "cloud" | "growth" | "chain";
 
@@ -20,9 +21,11 @@ export default function PillarCard({
   return (
     <article
       data-pillar={pillar}
-      className="group relative flex flex-col rounded-xl border border-fg-7 bg-bg-2 p-6 transition-[border-color,box-shadow,transform] duration-200 hover:border-[var(--accent)] hover:shadow-[0_0_32px_-6px_var(--accent)] sm:p-8"
+      className="group relative flex flex-col rounded-xl border border-fg-7 bg-bg-2 p-6 transition-[box-shadow,transform] duration-200 hover:shadow-[0_0_32px_-6px_var(--accent)] sm:p-8"
     >
-      <h3 className="font-display text-2xl font-semibold leading-[1.1] tracking-tight text-fg sm:text-[32px]">
+      <HoverTrace />
+
+      <h3 className="relative font-display text-2xl font-semibold leading-[1.1] tracking-tight text-fg sm:text-[32px]">
         {name}
       </h3>
 
@@ -44,9 +47,15 @@ export default function PillarCard({
 
       <Link
         href={href}
-        className="mt-8 inline-flex items-center gap-2 self-start font-mono text-xs uppercase tracking-[0.18em] text-[var(--accent)] transition-transform duration-150 hover:translate-x-1"
+        className="mono-link group/lm relative mt-8 inline-flex items-center gap-2 self-start font-mono text-xs uppercase tracking-[0.18em] text-[var(--accent)]"
       >
-        Learn more <span aria-hidden>→</span>
+        Learn more
+        <span
+          aria-hidden
+          className="transition-transform duration-150 group-hover/lm:translate-x-1"
+        >
+          →
+        </span>
       </Link>
     </article>
   );

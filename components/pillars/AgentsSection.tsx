@@ -1,27 +1,6 @@
-import { type ReactNode } from "react";
 import PillarSection from "./PillarSection";
 import Reveal from "../Reveal";
-
-const KEYWORDS = ["import", "from", "const", "new", "await", "return"];
-
-function tint(src: string): ReactNode[] {
-  const re = new RegExp(`\\b(${KEYWORDS.join("|")})\\b`, "g");
-  const out: ReactNode[] = [];
-  let last = 0;
-  let m: RegExpExecArray | null;
-  let key = 0;
-  while ((m = re.exec(src)) !== null) {
-    if (m.index > last) out.push(src.slice(last, m.index));
-    out.push(
-      <span key={key++} className="text-[var(--accent)]">
-        {m[0]}
-      </span>
-    );
-    last = m.index + m[0].length;
-  }
-  if (last < src.length) out.push(src.slice(last));
-  return out;
-}
+import AgentsCodeBlock from "./AgentsCodeBlock";
 
 const features = [
   {
@@ -61,9 +40,10 @@ export default function AgentsSection() {
       subheading="Persistent, tool-using agents that run for minutes or hours and recover from their own failures. Built for production traffic, not demos."
     >
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1.1fr_1fr] lg:gap-12">
-        <pre className="overflow-x-auto rounded-xl border border-fg-7 bg-bg-2 p-4 font-mono text-[11px] leading-[1.55] text-fg-2 sm:p-6 sm:text-[13px] sm:leading-[1.6]">
-          <code>{tint(codeSample)}</code>
-        </pre>
+        <AgentsCodeBlock
+          code={codeSample}
+          className="overflow-x-auto rounded-xl border border-fg-7 bg-bg-2 p-4 font-mono text-[11px] leading-[1.55] text-fg-2 sm:p-6 sm:text-[13px] sm:leading-[1.6]"
+        />
 
         <Reveal gap={70} className="flex flex-col gap-6">
           {features.map((f) => (

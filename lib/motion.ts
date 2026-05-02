@@ -49,8 +49,17 @@ export function heroTimeline(sel: HeroSelectors) {
   });
   return tl
     .add(sel.brand, { opacity: [0, 1], translateY: [12, 0] })
-    .add(sel.h1, { opacity: [0, 1], translateY: [24, 0] }, "-=350")
-    .add(sel.pillars, { opacity: [0, 1], translateY: [16, 0] }, "-=400")
+    .add(
+      sel.h1,
+      {
+        opacity: [0, 1],
+        translateY: [18, 0],
+        duration: 420,
+        delay: stagger(22),
+      },
+      "-=350"
+    )
+    .add(sel.pillars, { opacity: [0, 1], translateY: [16, 0] }, "-=200")
     .add(sel.cta, { opacity: [0, 1], scale: [0.96, 1] }, "-=300");
 }
 
@@ -63,3 +72,4 @@ export function glowPulse(target: string) {
     loop: true,
   });
 }
+

@@ -1,5 +1,6 @@
 import PillarSection from "./PillarSection";
 import Reveal from "../Reveal";
+import Counter from "../Counter";
 
 const metrics = [
   { value: "12 ms", label: "p50 inference" },
@@ -38,7 +39,7 @@ export default function CloudSection() {
             className="rounded-xl border border-fg-7 bg-bg-2 p-5 sm:p-6"
           >
             <p className="font-display text-2xl font-semibold tracking-tight text-[var(--accent)] sm:text-5xl">
-              {m.value}
+              <Counter value={m.value} />
             </p>
             <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.18em] text-fg-4 sm:text-xs">
               {m.label}

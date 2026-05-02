@@ -1,15 +1,13 @@
 "use client";
 
-import { useEffect, useRef, type ReactNode } from "react";
+import { useEffect, useRef, type HTMLAttributes } from "react";
 import { animate, stagger } from "animejs";
 
 const reduced = () =>
   typeof window !== "undefined" &&
   window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-type Props = {
-  children: ReactNode;
-  className?: string;
+type Props = HTMLAttributes<HTMLDivElement> & {
   gap?: number;
   threshold?: number;
 };
@@ -19,6 +17,7 @@ export default function Reveal({
   className,
   gap = 60,
   threshold = 0.15,
+  ...rest
 }: Props) {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -49,7 +48,7 @@ export default function Reveal({
   }, [gap, threshold]);
 
   return (
-    <div ref={ref} className={className}>
+    <div ref={ref} className={className} {...rest}>
       {children}
     </div>
   );

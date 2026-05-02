@@ -30,7 +30,7 @@ const pillars: readonly Pillar[] = [
       "Pay-per-execution pricing, no idle cost",
       "Edge inference and warm-pool readiness",
     ],
-    href: "#cloud",
+    href: "/cloud",
   },
   {
     pillar: "growth",

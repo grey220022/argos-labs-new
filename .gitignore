@@ -52,3 +52,6 @@ next-env.d.ts
 /reference-animejs/images/
 /reference-animejs/meta/
 .gstack/
+
+# Local Claude Code permissions / per-machine config
+.claude/

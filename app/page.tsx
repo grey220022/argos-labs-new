@@ -26,14 +26,14 @@ export default function Home() {
         <div>
           <p
             data-hero="brand"
-            className="font-mono text-sm uppercase tracking-[0.28em] text-fg-2"
+            className="font-mono text-xl uppercase tracking-[0.28em] text-fg sm:text-2xl lg:text-[28px]"
           >
             Argos Labs
           </p>
 
           <h1
             data-hero="h1"
-            className="mt-8 font-display text-4xl font-semibold leading-[0.95] tracking-tight text-fg sm:text-6xl lg:text-7xl"
+            className="mt-8 font-display text-4xl font-semibold leading-[0.95] tracking-tight text-fg sm:text-5xl lg:text-[64px]"
           >
             All-in-One AI Execution Platform
           </h1>
@@ -48,12 +48,13 @@ export default function Home() {
                 key={p.id}
                 className="inline-flex items-center gap-x-3 whitespace-nowrap"
               >
-                <span
+                <a
+                  href={`#${p.id}`}
                   data-pillar={p.id}
-                  className="cursor-default text-fg-2 transition-colors duration-100 hover:text-[var(--accent)]"
+                  className="text-fg-2 transition-colors duration-100 hover:text-[var(--accent)]"
                 >
                   {p.name}
-                </span>
+                </a>
                 {i < pillars.length - 1 && (
                   <span aria-hidden className="text-fg-5">
                     ·
@@ -79,7 +80,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="mx-auto hidden w-full max-w-[520px] lg:block">
+        <div className="mx-auto mt-12 w-full max-w-[320px] sm:max-w-[420px] lg:mt-0 lg:max-w-[520px]">
           <HeroVisual />
         </div>
       </div>
