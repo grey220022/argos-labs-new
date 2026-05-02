@@ -6,6 +6,7 @@ type Partner = {
   file: string;
   w: number;
   h: number;
+  boost?: boolean; // 内嵌大量空白边距 / 比例近方形的 logo 用此放大一档
 };
 
 const partners: readonly Partner[] = [
@@ -30,7 +31,7 @@ const partners: readonly Partner[] = [
   { name: "Standx", file: "standx.png", w: 388, h: 506 },
   { name: "Creao", file: "creao.png", w: 463, h: 169 },
   { name: "Debot", file: "debot.png", w: 992, h: 992 },
-  { name: "Tencent Cloud", file: "tencent-cloud.svg", w: 1053, h: 720 },
+  { name: "Tencent Cloud", file: "tencent-cloud.svg", w: 1053, h: 720, boost: true },
   { name: "AWS", file: "aws.svg", w: 304, h: 182 },
   { name: "OVHcloud", file: "ovhcloud.svg", w: 298, h: 47 },
 ];
@@ -59,7 +60,9 @@ export default function LogoWall() {
               alt={p.name}
               width={p.w}
               height={p.h}
-              className="h-7 w-auto select-none sm:h-8"
+              className={`w-auto select-none ${
+                p.boost ? "h-11 sm:h-14" : "h-7 sm:h-8"
+              }`}
               sizes="(max-width: 640px) 96px, 128px"
             />
           </div>
