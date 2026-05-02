@@ -16,12 +16,12 @@ const partners = [
 
 export default function LogoWall() {
   return (
-    <section className="mt-24 sm:mt-32" aria-labelledby="backed-by">
+    <section className="mt-24 sm:mt-32" aria-labelledby="trusted-by">
       <p
-        id="backed-by"
+        id="trusted-by"
         className="font-mono text-xs uppercase tracking-[0.22em] text-fg-4"
       >
-        Backed by
+        Trusted by
       </p>
 
       <Reveal
