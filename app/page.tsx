@@ -80,12 +80,6 @@ export default function Home() {
       <GrowthSection />
       <BlockChainSection />
 
-      <div
-        aria-hidden
-        className="pointer-events-none fixed bottom-4 right-4 select-none font-mono text-[10px] tracking-[0.18em] text-fg-5"
-      >
-        build a3f2e9c · 14ms · 4 regions running
-      </div>
       </main>
 
       <ClosingBanner />

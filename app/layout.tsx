@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import BackgroundGrid from "@/components/BackgroundGrid";
+import LiveTicker from "@/components/LiveTicker";
 
 const dinish = localFont({
   src: "./fonts/DINish-VF.woff2",
@@ -33,7 +35,11 @@ export default function RootLayout({
       lang="en"
       className={`${dinish.variable} ${jetbrainsMono.variable} antialiased`}
     >
-      <body className="min-h-dvh">{children}</body>
+      <body className="relative min-h-dvh">
+        <BackgroundGrid />
+        {children}
+        <LiveTicker />
+      </body>
     </html>
   );
 }
