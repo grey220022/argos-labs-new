@@ -1,4 +1,6 @@
 import HeroIntro from "@/components/HeroIntro";
+import LogoWall from "@/components/LogoWall";
+import PillarGrid from "@/components/PillarGrid";
 
 const pillars = [
   { id: "agents", name: "Agents" },
@@ -56,12 +58,15 @@ export default function Home() {
           Talk to Sales
         </a>
         <a
-          href="#docs"
+          href="#pillars"
           className="inline-flex h-12 items-center rounded-md border border-fg-6 px-5 font-display font-medium text-fg transition-colors duration-100 hover:border-fg-3"
         >
-          Read Docs
+          Explore the platform
         </a>
       </div>
+
+      <LogoWall />
+      <PillarGrid />
 
       <div
         aria-hidden
