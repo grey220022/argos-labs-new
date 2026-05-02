@@ -41,7 +41,10 @@ export default function Home() {
         aria-label="Pillars"
       >
         {pillars.map((p, i) => (
-          <span key={p.id} className="contents">
+          <span
+            key={p.id}
+            className="inline-flex items-center gap-x-3 whitespace-nowrap"
+          >
             <span
               data-pillar={p.id}
               className="cursor-default text-fg-2 transition-colors duration-100 hover:text-[var(--accent)]"
