@@ -1,4 +1,5 @@
 import HeroIntro from "@/components/HeroIntro";
+import HeroVisual from "@/components/HeroVisual";
 import LogoWall from "@/components/LogoWall";
 import PillarGrid from "@/components/PillarGrid";
 import AgentsSection from "@/components/pillars/AgentsSection";
@@ -21,58 +22,66 @@ export default function Home() {
       <main className="relative mx-auto max-w-[1500px] px-6 py-24 sm:px-12 lg:px-24">
       <HeroIntro />
 
-      <p
-        data-hero="brand"
-        className="font-mono text-sm uppercase tracking-[0.28em] text-fg-2"
-      >
-        Argos Labs
-      </p>
-
-      <h1
-        data-hero="h1"
-        className="mt-8 max-w-5xl font-display text-4xl font-semibold leading-[0.95] tracking-tight text-fg sm:text-6xl lg:text-7xl"
-      >
-        All-in-One AI Execution Platform
-      </h1>
-
-      <nav
-        data-hero="pillars"
-        className="mt-10 flex flex-wrap items-center gap-x-3 gap-y-2 font-display text-lg sm:text-xl text-fg-2"
-        aria-label="Pillars"
-      >
-        {pillars.map((p, i) => (
-          <span
-            key={p.id}
-            className="inline-flex items-center gap-x-3 whitespace-nowrap"
+      <div className="grid gap-12 lg:grid-cols-[1fr_minmax(0,520px)] lg:items-center lg:gap-16">
+        <div>
+          <p
+            data-hero="brand"
+            className="font-mono text-sm uppercase tracking-[0.28em] text-fg-2"
           >
-            <span
-              data-pillar={p.id}
-              className="cursor-default text-fg-2 transition-colors duration-100 hover:text-[var(--accent)]"
-            >
-              {p.name}
-            </span>
-            {i < pillars.length - 1 && (
-              <span aria-hidden className="text-fg-5">
-                ·
-              </span>
-            )}
-          </span>
-        ))}
-      </nav>
+            Argos Labs
+          </p>
 
-      <div data-hero="cta" className="mt-12 flex flex-wrap gap-3">
-        <a
-          href="mailto:contact@argoslabs.io"
-          className="inline-flex h-12 items-center rounded-md bg-brand px-5 font-display font-medium text-bg shadow-[0_0_28px_-6px_var(--color-brand)] transition-transform duration-100 hover:scale-[1.02]"
-        >
-          Talk to Sales
-        </a>
-        <a
-          href="#pillars"
-          className="inline-flex h-12 items-center rounded-md border border-fg-6 px-5 font-display font-medium text-fg transition-colors duration-100 hover:border-fg-3"
-        >
-          Explore the platform
-        </a>
+          <h1
+            data-hero="h1"
+            className="mt-8 font-display text-4xl font-semibold leading-[0.95] tracking-tight text-fg sm:text-6xl lg:text-7xl"
+          >
+            All-in-One AI Execution Platform
+          </h1>
+
+          <nav
+            data-hero="pillars"
+            className="mt-10 flex flex-wrap items-center gap-x-3 gap-y-2 font-display text-lg sm:text-xl text-fg-2"
+            aria-label="Pillars"
+          >
+            {pillars.map((p, i) => (
+              <span
+                key={p.id}
+                className="inline-flex items-center gap-x-3 whitespace-nowrap"
+              >
+                <span
+                  data-pillar={p.id}
+                  className="cursor-default text-fg-2 transition-colors duration-100 hover:text-[var(--accent)]"
+                >
+                  {p.name}
+                </span>
+                {i < pillars.length - 1 && (
+                  <span aria-hidden className="text-fg-5">
+                    ·
+                  </span>
+                )}
+              </span>
+            ))}
+          </nav>
+
+          <div data-hero="cta" className="mt-12 flex flex-wrap gap-3">
+            <a
+              href="mailto:contact@argoslabs.io"
+              className="inline-flex h-12 items-center rounded-md bg-brand px-5 font-display font-medium text-bg shadow-[0_0_28px_-6px_var(--color-brand)] transition-transform duration-100 hover:scale-[1.02]"
+            >
+              Talk to Sales
+            </a>
+            <a
+              href="#pillars"
+              className="inline-flex h-12 items-center rounded-md border border-fg-6 px-5 font-display font-medium text-fg transition-colors duration-100 hover:border-fg-3"
+            >
+              Explore the platform
+            </a>
+          </div>
+        </div>
+
+        <div className="mx-auto w-full max-w-[420px] lg:max-w-[520px]">
+          <HeroVisual />
+        </div>
       </div>
 
       <LogoWall />
