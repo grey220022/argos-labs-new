@@ -1,5 +1,27 @@
+import { type ReactNode } from "react";
 import PillarSection from "./PillarSection";
 import Reveal from "../Reveal";
+
+const KEYWORDS = ["import", "from", "const", "new", "await", "return"];
+
+function tint(src: string): ReactNode[] {
+  const re = new RegExp(`\\b(${KEYWORDS.join("|")})\\b`, "g");
+  const out: ReactNode[] = [];
+  let last = 0;
+  let m: RegExpExecArray | null;
+  let key = 0;
+  while ((m = re.exec(src)) !== null) {
+    if (m.index > last) out.push(src.slice(last, m.index));
+    out.push(
+      <span key={key++} className="text-[var(--accent)]">
+        {m[0]}
+      </span>
+    );
+    last = m.index + m[0].length;
+  }
+  if (last < src.length) out.push(src.slice(last));
+  return out;
+}
 
 const features = [
   {
@@ -40,7 +62,7 @@ export default function AgentsSection() {
     >
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1.1fr_1fr] lg:gap-12">
         <pre className="overflow-x-auto rounded-xl border border-fg-7 bg-bg-2 p-6 font-mono text-[13px] leading-[1.6] text-fg-2">
-          <code>{codeSample}</code>
+          <code>{tint(codeSample)}</code>
         </pre>
 
         <Reveal gap={70} className="flex flex-col gap-6">
