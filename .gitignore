@@ -51,3 +51,4 @@ next-env.d.ts
 /reference-animejs/fonts/
 /reference-animejs/images/
 /reference-animejs/meta/
+.gstack/
