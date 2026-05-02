@@ -23,7 +23,7 @@ export default function Home() {
 
       <p
         data-hero="brand"
-        className="font-mono text-xs uppercase tracking-[0.2em] text-fg-3"
+        className="font-mono text-sm uppercase tracking-[0.28em] text-fg-2"
       >
         Argos Labs
       </p>
