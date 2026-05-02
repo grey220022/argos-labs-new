@@ -1,7 +1,15 @@
 import Image from "next/image";
 import Reveal from "./Reveal";
 
-const partners = [
+type Partner = {
+  name: string;
+  file: string;
+  w: number;
+  h: number;
+  invert?: boolean; // true for dark-on-transparent assets that need flipping on dark bg
+};
+
+const partners: readonly Partner[] = [
   { name: "Station F", file: "stationf.png", w: 420, h: 76 },
   { name: "HEC Paris", file: "hec.png", w: 230, h: 103 },
   { name: "École Polytechnique", file: "polytechnique.png", w: 562, h: 165 },
@@ -12,6 +20,9 @@ const partners = [
   { name: "Quantstamp", file: "quantstamp.png", w: 590, h: 110 },
   { name: "Alstom", file: "alstom.png", w: 328, h: 68 },
   { name: "Shift", file: "shift.png", w: 286, h: 73 },
+  { name: "Solana", file: "solana.svg", w: 646, h: 96 },
+  { name: "Circle", file: "circle.avif", w: 391, h: 100, invert: true },
+  { name: "iExec", file: "iexec.svg", w: 111, h: 41 },
 ];
 
 export default function LogoWall() {
@@ -38,7 +49,9 @@ export default function LogoWall() {
               alt={p.name}
               width={p.w}
               height={p.h}
-              className="h-7 w-auto select-none sm:h-8"
+              className={`h-7 w-auto select-none sm:h-8 ${
+                p.invert ? "invert" : ""
+              }`}
               sizes="(max-width: 640px) 96px, 128px"
             />
           </div>
