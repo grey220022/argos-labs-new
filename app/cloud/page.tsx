@@ -143,16 +143,21 @@ export default function CloudPage() {
           <h1
             id="cloud-hero"
             data-cloud-h1
-            className="max-w-[20ch] font-display text-4xl font-semibold leading-[0.95] tracking-tight text-fg sm:text-5xl lg:text-[64px]"
+            className="max-w-[20ch] font-display text-4xl font-semibold leading-[0.95] tracking-tight text-fg sm:text-5xl lg:max-w-none lg:text-[64px]"
           >
-            Your{" "}
-            <span className="text-[var(--accent)]">cloud engineering team</span>{" "}
-            for AI, Web3, and{" "}
-            <RotatingPhrase
-              phrases={["fintech", "Agents", "Models", "GPUs"]}
-              className="text-[var(--accent)]"
-            />
-            .
+            <span className="lg:block">
+              Your{" "}
+              <span className="text-[var(--accent)]">
+                cloud engineering team
+              </span>
+            </span>{" "}
+            <span className="lg:block">for AI, Web3, and</span>{" "}
+            <span className="text-[var(--accent)] lg:block">
+              <RotatingPhrase
+                phrases={["fintech", "Agents", "Models", "GPUs"]}
+              />
+              .
+            </span>
           </h1>
           <CharStagger selector="[data-cloud-h1]" />
 
