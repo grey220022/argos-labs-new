@@ -39,6 +39,13 @@ export default function Home() {
             All-in-One AI Execution Platform
           </h1>
 
+          <p
+            data-hero="lead"
+            className="mt-6 max-w-2xl text-base leading-relaxed text-fg-3 sm:text-lg"
+          >
+            We help enterprises build with AI — agents, infra, growth, on-chain.
+          </p>
+
           <PillarNav pillars={pillars} />
 
           <div data-hero="cta" className="mt-12 flex flex-wrap gap-3">

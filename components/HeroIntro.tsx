@@ -13,6 +13,7 @@ export default function HeroIntro() {
     heroTimeline({
       brand: '[data-hero="brand"]',
       h1: `${h1Sel} [data-char]`,
+      lead: '[data-hero="lead"]',
       pillars: '[data-hero="pillars"]',
       cta: '[data-hero="cta"]',
     });

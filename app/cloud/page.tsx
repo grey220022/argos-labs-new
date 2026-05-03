@@ -162,6 +162,10 @@ export default function CloudPage() {
           <CharStagger selector="[data-cloud-h1]" />
 
           <p className="mt-8 max-w-2xl text-base leading-relaxed text-fg-3 sm:text-lg">
+            We help enterprises build with AI — agents, infra, growth, on-chain.
+          </p>
+
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-fg-3 sm:text-lg">
             <strong className="font-semibold text-fg">GPU compute</strong>,{" "}
             <strong className="font-semibold text-fg">LLM gateways</strong>,{" "}
             <strong className="font-semibold text-fg">blockchain RPC</strong>{" "}

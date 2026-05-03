@@ -33,33 +33,40 @@ export function staggerCards(target: string, gap = 60) {
 export type HeroSelectors = {
   brand: string;
   h1: string;
+  lead?: string;
   pillars: string;
   cta: string;
 };
 
 export function heroTimeline(sel: HeroSelectors) {
   if (reduced()) {
-    return animate(`${sel.brand}, ${sel.h1}, ${sel.pillars}, ${sel.cta}`, {
-      opacity: [0, 1],
-      duration: 200,
-    });
+    const targets = [sel.brand, sel.h1, sel.lead, sel.pillars, sel.cta]
+      .filter(Boolean)
+      .join(", ");
+    return animate(targets, { opacity: [0, 1], duration: 200 });
   }
   const tl = createTimeline({
     defaults: { ease: "outCubic", duration: 600 },
   });
+  tl.add(sel.brand, { opacity: [0, 1], translateY: [12, 0] }).add(
+    sel.h1,
+    {
+      opacity: [0, 1],
+      translateY: [18, 0],
+      duration: 420,
+      delay: stagger(22),
+    },
+    "-=350"
+  );
+  if (sel.lead) {
+    tl.add(sel.lead, { opacity: [0, 1], translateY: [12, 0] }, "-=200");
+  }
   return tl
-    .add(sel.brand, { opacity: [0, 1], translateY: [12, 0] })
     .add(
-      sel.h1,
-      {
-        opacity: [0, 1],
-        translateY: [18, 0],
-        duration: 420,
-        delay: stagger(22),
-      },
-      "-=350"
+      sel.pillars,
+      { opacity: [0, 1], translateY: [16, 0] },
+      sel.lead ? "-=350" : "-=200"
     )
-    .add(sel.pillars, { opacity: [0, 1], translateY: [16, 0] }, "-=200")
     .add(sel.cta, { opacity: [0, 1], scale: [0.96, 1] }, "-=300");
 }
 
