@@ -91,12 +91,17 @@ body {
   }
 }
 
-/* Hero pillar nav hover propagates state to matching deep-dive section.
-   Eyebrow dot scales up + glows in the section's hue, signaling "this is what you'd see". */
+/* Hero pillar nav hover (or auto-cycle highlight) propagates state to matching
+   deep-dive section. Eyebrow dot scales up + glows in the section's hue,
+   signaling "this is what you'd see". */
 html:has([data-hero="pillars"] [data-pillar="agents"]:hover) section[data-pillar="agents"] [data-eyebrow-dot],
 html:has([data-hero="pillars"] [data-pillar="cloud"]:hover)  section[data-pillar="cloud"]  [data-eyebrow-dot],
 html:has([data-hero="pillars"] [data-pillar="growth"]:hover) section[data-pillar="growth"] [data-eyebrow-dot],
-html:has([data-hero="pillars"] [data-pillar="chain"]:hover)  section[data-pillar="chain"]  [data-eyebrow-dot] {
+html:has([data-hero="pillars"] [data-pillar="chain"]:hover)  section[data-pillar="chain"]  [data-eyebrow-dot],
+html:has([data-hero="pillars"] [data-pillar="agents"][data-cycle-active="true"]) section[data-pillar="agents"] [data-eyebrow-dot],
+html:has([data-hero="pillars"] [data-pillar="cloud"][data-cycle-active="true"])  section[data-pillar="cloud"]  [data-eyebrow-dot],
+html:has([data-hero="pillars"] [data-pillar="growth"][data-cycle-active="true"]) section[data-pillar="growth"] [data-eyebrow-dot],
+html:has([data-hero="pillars"] [data-pillar="chain"][data-cycle-active="true"])  section[data-pillar="chain"]  [data-eyebrow-dot] {
   transform: scale(2.2);
   box-shadow: 0 0 18px var(--accent);
 }

@@ -2,6 +2,7 @@ import HeroIntro from "@/components/HeroIntro";
 import HeroVisual from "@/components/HeroVisual";
 import LogoWall from "@/components/LogoWall";
 import PillarGrid from "@/components/PillarGrid";
+import PillarNav from "@/components/PillarNav";
 import AgentsSection from "@/components/pillars/AgentsSection";
 import CloudSection from "@/components/pillars/CloudSection";
 import GrowthSection from "@/components/pillars/GrowthSection";
@@ -38,31 +39,7 @@ export default function Home() {
             All-in-One AI Execution Platform
           </h1>
 
-          <nav
-            data-hero="pillars"
-            className="mt-10 flex flex-wrap items-center gap-x-3 gap-y-2 font-display text-xl sm:text-2xl text-fg-2"
-            aria-label="Pillars"
-          >
-            {pillars.map((p, i) => (
-              <span
-                key={p.id}
-                className="inline-flex items-center gap-x-3 whitespace-nowrap"
-              >
-                <a
-                  href={`#${p.id}`}
-                  data-pillar={p.id}
-                  className="text-fg-2 transition-colors duration-100 hover:text-[var(--accent)]"
-                >
-                  {p.name}
-                </a>
-                {i < pillars.length - 1 && (
-                  <span aria-hidden className="text-fg-5">
-                    ·
-                  </span>
-                )}
-              </span>
-            ))}
-          </nav>
+          <PillarNav pillars={pillars} />
 
           <div data-hero="cta" className="mt-12 flex flex-wrap gap-3">
             <a
@@ -75,7 +52,7 @@ export default function Home() {
             <a
               data-cta
               href="#pillars"
-              className="inline-flex h-12 items-center rounded-md border border-fg-6 px-5 font-display font-medium text-fg transition-colors duration-100 hover:border-fg-3"
+              className="cta-rotating-border inline-flex h-12 items-center rounded-md px-5 font-display font-medium text-fg transition-colors duration-100 hover:text-[var(--accent)]"
             >
               Explore the platform
             </a>
