@@ -203,9 +203,7 @@ export default function CloudPage() {
                 <div
                   key={`${p.name}-${i}`}
                   aria-hidden={i >= providers.length}
-                  className={`group/logo relative flex shrink-0 items-center justify-center ${
-                    p.boost ? "h-9 w-28 sm:h-12 sm:w-36" : "h-6 w-24 sm:h-8 sm:w-32"
-                  }`}
+                  className="group/logo relative flex shrink-0 items-center justify-center"
                 >
                   <span
                     aria-hidden
@@ -216,7 +214,9 @@ export default function CloudPage() {
                     alt={i < providers.length ? p.name : ""}
                     width={p.w}
                     height={p.h}
-                    className="relative max-h-full max-w-full select-none object-contain brightness-0 invert opacity-60 transition duration-[350ms] ease-[cubic-bezier(0,0,0.2,1)] group-hover/wall:opacity-40 group-hover/logo:invert-0 group-hover/logo:brightness-100 group-hover/logo:scale-105 group-hover/logo:!opacity-100"
+                    className={`relative w-auto select-none brightness-0 invert opacity-60 transition duration-[350ms] ease-[cubic-bezier(0,0,0.2,1)] group-hover/wall:opacity-40 group-hover/logo:invert-0 group-hover/logo:brightness-100 group-hover/logo:scale-105 group-hover/logo:!opacity-100 ${
+                      p.boost ? "h-14 sm:h-20" : "h-10 sm:h-14"
+                    }`}
                     sizes="(max-width: 640px) 96px, 140px"
                   />
                 </div>
