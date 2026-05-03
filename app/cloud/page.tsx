@@ -194,10 +194,6 @@ export default function CloudPage() {
           <SectionSweep />
           <SectionEyebrow id="cloud-providers">Every Cloud, Argos Cloud</SectionEyebrow>
 
-          <h2 className="mt-4 max-w-3xl font-display text-3xl font-semibold leading-[1.05] tracking-tight text-fg sm:text-5xl">
-            Hyperscalers, GPU clouds, and Web3 infra — under one control plane.
-          </h2>
-
           {/* Marquee logo wall — track is rendered twice for seamless loop.
               Pauses on hover (desktop). On mobile, scrolls at the same
               cadence; logos are slightly smaller so the cycle feels right. */}
