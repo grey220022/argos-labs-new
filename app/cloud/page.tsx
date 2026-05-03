@@ -7,6 +7,7 @@ import Counter from "@/components/Counter";
 import HoverTrace from "@/components/HoverTrace";
 import CharStagger from "@/components/CharStagger";
 import SectionSweep from "@/components/SectionSweep";
+import RotatingPhrase from "@/components/RotatingPhrase";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
@@ -139,42 +140,41 @@ export default function CloudPage() {
 
         {/* 1. Hero */}
         <section aria-labelledby="cloud-hero" className="pt-8 sm:pt-12">
-          <p className="font-mono text-xs uppercase tracking-[0.28em] text-[var(--accent)]">
-            Argos Cloud · Multi-Cloud Solutions
-          </p>
-
           <h1
             id="cloud-hero"
             data-cloud-h1
-            className="mt-6 max-w-[20ch] font-display text-4xl font-semibold leading-[0.95] tracking-tight text-fg sm:text-5xl lg:text-[64px]"
+            className="max-w-[20ch] font-display text-4xl font-semibold leading-[0.95] tracking-tight text-fg sm:text-5xl lg:text-[64px]"
           >
             Your{" "}
             <span className="text-[var(--accent)]">cloud engineering team</span>{" "}
-            for AI, Web3, and fintech.
+            for AI, Web3, and{" "}
+            <RotatingPhrase
+              phrases={["fintech", "Agents", "Models", "GPUs"]}
+              className="text-[var(--accent)]"
+            />
+            .
           </h1>
           <CharStagger selector="[data-cloud-h1]" />
 
           <p className="mt-8 max-w-2xl text-base leading-relaxed text-fg-3 sm:text-lg">
-            We architect, deploy, and operate{" "}
             <strong className="font-semibold text-fg">GPU compute</strong>,{" "}
-            <strong className="font-semibold text-fg">LLM gateways</strong>,
-            and{" "}
+            <strong className="font-semibold text-fg">LLM gateways</strong>,{" "}
             <strong className="font-semibold text-fg">blockchain RPC</strong>{" "}
-            across every major cloud — with engineered cost discipline,
-            flexible payment, global support, and a senior solutions architect
-            on every account.
+            — engineered across every major cloud.
           </p>
 
           <div className="mt-10 flex flex-wrap gap-3">
             <a
+              data-cta
               href="mailto:contact@argoslabs.io?subject=Argos%20Cloud%20trial"
               className="inline-flex h-12 items-center rounded-md bg-[var(--accent)] px-5 font-display font-medium text-bg shadow-[0_0_28px_-6px_var(--accent)] transition-transform duration-100 hover:scale-[1.02]"
             >
               Start Free Trial
             </a>
             <a
+              data-cta
               href="mailto:contact@argoslabs.io?subject=Talk%20to%20an%20architect"
-              className="inline-flex h-12 items-center rounded-md border border-fg-6 px-5 font-display font-medium text-fg transition-colors duration-100 hover:border-[var(--accent)] hover:text-[var(--accent)]"
+              className="cta-rotating-border inline-flex h-12 items-center rounded-md px-5 font-display font-medium text-fg transition-colors duration-100 hover:text-[var(--accent)]"
             >
               Talk to an Architect
             </a>
@@ -193,32 +193,35 @@ export default function CloudPage() {
             Hyperscalers, GPU clouds, and Web3 infra — under one control plane.
           </h2>
 
-          <Reveal
-            gap={40}
-            className="group/wall mt-12 grid grid-cols-3 items-center justify-items-center gap-x-6 gap-y-10 sm:grid-cols-5 sm:gap-x-10 lg:grid-cols-9"
-          >
-            {providers.map((p) => (
-              <div
-                key={p.name}
-                className={`group/logo relative flex w-full items-center justify-center ${
-                  p.boost ? "h-11 sm:h-14" : "h-7 sm:h-9"
-                }`}
-              >
-                <span
-                  aria-hidden
-                  className="pointer-events-none absolute -inset-3 rounded-md bg-[var(--accent)]/0 blur-2xl transition-colors duration-[350ms] ease-[cubic-bezier(0,0,0.2,1)] group-hover/logo:bg-[var(--accent)]/25"
-                />
-                <Image
-                  src={`/images/${p.file}`}
-                  alt={p.name}
-                  width={p.w}
-                  height={p.h}
-                  className="relative max-h-full max-w-full select-none object-contain brightness-0 invert opacity-60 transition duration-[350ms] ease-[cubic-bezier(0,0,0.2,1)] group-hover/wall:opacity-30 group-hover/logo:invert-0 group-hover/logo:brightness-100 group-hover/logo:scale-105 group-hover/logo:!opacity-100"
-                  sizes="(max-width: 640px) 96px, 140px"
-                />
-              </div>
-            ))}
-          </Reveal>
+          {/* Marquee logo wall — track is rendered twice for seamless loop.
+              Pauses on hover (desktop). On mobile, scrolls at the same
+              cadence; logos are slightly smaller so the cycle feels right. */}
+          <div className="marquee-mask group/wall mt-12 overflow-hidden">
+            <div className="marquee-track flex w-max items-center gap-10 sm:gap-14 lg:gap-16">
+              {[...providers, ...providers].map((p, i) => (
+                <div
+                  key={`${p.name}-${i}`}
+                  aria-hidden={i >= providers.length}
+                  className={`group/logo relative flex shrink-0 items-center justify-center ${
+                    p.boost ? "h-9 w-28 sm:h-12 sm:w-36" : "h-6 w-24 sm:h-8 sm:w-32"
+                  }`}
+                >
+                  <span
+                    aria-hidden
+                    className="pointer-events-none absolute -inset-3 rounded-md bg-[var(--accent)]/0 blur-2xl transition-colors duration-[350ms] ease-[cubic-bezier(0,0,0.2,1)] group-hover/logo:bg-[var(--accent)]/25"
+                  />
+                  <Image
+                    src={`/images/${p.file}`}
+                    alt={i < providers.length ? p.name : ""}
+                    width={p.w}
+                    height={p.h}
+                    className="relative max-h-full max-w-full select-none object-contain brightness-0 invert opacity-60 transition duration-[350ms] ease-[cubic-bezier(0,0,0.2,1)] group-hover/wall:opacity-40 group-hover/logo:invert-0 group-hover/logo:brightness-100 group-hover/logo:scale-105 group-hover/logo:!opacity-100"
+                    sizes="(max-width: 640px) 96px, 140px"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
         </section>
 
         {/* 2.5 LLM gateway — every model, one endpoint */}

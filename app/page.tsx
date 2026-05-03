@@ -66,12 +66,14 @@ export default function Home() {
 
           <div data-hero="cta" className="mt-12 flex flex-wrap gap-3">
             <a
+              data-cta
               href="mailto:contact@argoslabs.io"
               className="inline-flex h-12 items-center rounded-md bg-brand px-5 font-display font-medium text-bg shadow-[0_0_28px_-6px_var(--color-brand)] transition-transform duration-100 hover:scale-[1.02]"
             >
               Talk to Sales
             </a>
             <a
+              data-cta
               href="#pillars"
               className="inline-flex h-12 items-center rounded-md border border-fg-6 px-5 font-display font-medium text-fg transition-colors duration-100 hover:border-fg-3"
             >

@@ -65,6 +65,7 @@ export default function CloudSection() {
       </Reveal>
 
       <a
+        data-cta
         href="mailto:contact@argoslabs.io?subject=Cloud%20pricing"
         className="mt-12 inline-flex h-12 items-center rounded-md border border-[var(--accent)] px-5 font-display font-medium text-[var(--accent)] transition-colors duration-150 hover:bg-[var(--accent)] hover:text-bg"
       >

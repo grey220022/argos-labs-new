@@ -49,6 +49,7 @@ export default function GrowthSection() {
       </Reveal>
 
       <a
+        data-cta
         href="mailto:contact@argoslabs.io?subject=Growth%20engagement"
         className="mt-12 inline-flex h-12 items-center rounded-md bg-[var(--accent)] px-5 font-display font-medium text-bg shadow-[0_0_28px_-6px_var(--accent)] transition-transform duration-100 hover:scale-[1.02]"
       >

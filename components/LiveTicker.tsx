@@ -93,16 +93,17 @@ export default function LiveTicker() {
   return (
     <div
       aria-hidden
-      className={`pointer-events-none fixed bottom-4 right-4 z-20 hidden select-none items-center gap-2 font-mono text-[10px] tracking-[0.18em] text-fg-5 tabular-nums transition-opacity duration-300 sm:flex ${
+      className={`pointer-events-none fixed bottom-3 right-3 z-20 flex select-none items-center gap-1.5 font-mono text-[9px] tracking-[0.16em] text-fg-5 tabular-nums transition-opacity duration-300 sm:bottom-4 sm:right-4 sm:gap-2 sm:text-[10px] sm:tracking-[0.18em] ${
         atFooter ? "opacity-0" : "opacity-100"
       }`}
     >
       <span aria-hidden className="live-dot inline-block size-1.5 rounded-full" />
       <span>LIVE</span>
+      {/* build hash + regions: desktop only — would crowd the small viewport */}
+      <span aria-hidden className="hidden text-fg-7 sm:inline">·</span>
+      <span className="hidden sm:inline">build {BUILD}</span>
       <span aria-hidden className="text-fg-7">·</span>
-      <span>build {BUILD}</span>
-      <span aria-hidden className="text-fg-7">·</span>
-      <span className="inline-flex items-center gap-1.5">
+      <span className="inline-flex items-center gap-1 sm:gap-1.5">
         <span>{String(latency).padStart(2, "0")}ms</span>
         <svg
           width={SPARK_WIDTH}
@@ -122,8 +123,8 @@ export default function LiveTicker() {
           />
         </svg>
       </span>
-      <span aria-hidden className="text-fg-7">·</span>
-      <span>{REGIONS} regions running</span>
+      <span aria-hidden className="hidden text-fg-7 sm:inline">·</span>
+      <span className="hidden sm:inline">{REGIONS} regions running</span>
     </div>
   );
 }

@@ -13,7 +13,21 @@ export function splitWordsAndChars(root: HTMLElement) {
   root.setAttribute("aria-label", root.textContent ?? "");
   root.dataset.split = "1";
 
-  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+  // Walk all text nodes, but skip subtrees flagged `data-no-split` so that
+  // dynamic widgets (RotatingPhrase, AgentsCodeBlock-like content) keep their
+  // own DOM untouched and can mutate textContent imperatively.
+  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+    acceptNode(n) {
+      let parent: HTMLElement | null = (n as Text).parentElement;
+      while (parent && parent !== root) {
+        if (parent.dataset?.noSplit !== undefined) {
+          return NodeFilter.FILTER_REJECT;
+        }
+        parent = parent.parentElement;
+      }
+      return NodeFilter.FILTER_ACCEPT;
+    },
+  });
   const textNodes: Text[] = [];
   let node: Node | null;
   while ((node = walker.nextNode())) {

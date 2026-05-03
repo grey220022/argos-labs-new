@@ -140,8 +140,146 @@ html:has([data-hero="pillars"] [data-pillar="chain"]:hover)  section[data-pillar
   }
 }
 
-/* Magnetic underline — 1px draws left→right on hover. Apply `mono-link` to
-   any text link that should get this hover quality polish. */
+/* Touch-device card trace: when an ancestor gets data-trace-fire="1"
+   (set by HoverTrace on IntersectionObserver entry), the inner rect plays
+   a one-shot draw → hold → fade-out cycle so mobile users see the same
+   "card lights up" signal that hover gives on desktop. */
+@media (hover: none) {
+  @keyframes hover-trace-once {
+    0%   { stroke-dashoffset: 1; }
+    35%  { stroke-dashoffset: 0; }
+    70%  { stroke-dashoffset: 0; }
+    100% { stroke-dashoffset: 1; }
+  }
+  [data-trace-fire="1"] .hover-trace-rect {
+    animation: hover-trace-once 2400ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+}
+
+/* CTA rotating + flickering border — premium attention signal.
+   Layer 1 (::before): conic-gradient ring rotating around the perimeter (5s).
+   Layer 2 (::after):  outer halo that flickers a brief flare every 6s.
+   Approach: @property animatable angle + mask-composite to hollow the
+   center so only the 1.5px ring is painted. */
+@property --cta-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+@keyframes cta-rotating-spin {
+  to {
+    --cta-angle: 360deg;
+  }
+}
+@keyframes cta-rotating-flicker {
+  0%, 96%, 100% { opacity: 0; }
+  97%           { opacity: 0.55; }
+  98%           { opacity: 0.15; }
+  99%           { opacity: 0.75; }
+}
+.cta-rotating-border {
+  position: relative;
+}
+.cta-rotating-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1.5px;
+  border-radius: inherit;
+  background: conic-gradient(
+    from var(--cta-angle),
+    var(--accent) 0deg,
+    color-mix(in oklab, var(--accent) 50%, transparent) 30deg,
+    transparent 110deg,
+    transparent 250deg,
+    color-mix(in oklab, var(--accent) 50%, transparent) 330deg,
+    var(--accent) 360deg
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events: none;
+}
+.cta-rotating-border::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  box-shadow: 0 0 14px 1px var(--accent);
+  opacity: 0;
+  pointer-events: none;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .cta-rotating-border::before {
+    animation: cta-rotating-spin 5s linear infinite;
+  }
+  .cta-rotating-border::after {
+    animation: cta-rotating-flicker 6s linear infinite;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  /* Fallback: static cyan ring, no rotation, no flicker */
+  .cta-rotating-border::before {
+    background: var(--accent);
+  }
+}
+
+/* CTA tap feedback — scale-down on press for tactile signal on touch.
+   Pairs with `data-cta` element handler that adds vibration. */
+[data-cta] {
+  transition-property: transform, box-shadow, background-color, color;
+}
+[data-cta]:active {
+  transform: scale(0.96);
+}
+
+/* Marquee logo wall — duplicates the track in DOM and translates -50% so
+   the seam between the first and second copy is invisible. Pauses on hover
+   (desktop only) so users can focus on a specific logo. Reduced-motion
+   users see a static row. */
+@keyframes marquee-track {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.marquee-track {
+  animation: marquee-track 36s linear infinite;
+  animation-play-state: running;
+  will-change: transform;
+}
+@media (hover: hover) {
+  .marquee-mask:hover .marquee-track {
+    animation-play-state: paused;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+    transform: none;
+  }
+}
+.marquee-mask {
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 6%,
+    black 94%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 6%,
+    black 94%,
+    transparent 100%
+  );
+}
+
+/* Touch-device card trace: when an ancestor gets data-trace-fire="1"
+   (set by HoverTrace on IntersectionObserver entry), the inner rect plays
+   a one-shot draw → hold → fade-out cycle so mobile users see the same
+   "card lights up" signal that hover gives on desktop. */
 .mono-link {
   position: relative;
   display: inline-block;

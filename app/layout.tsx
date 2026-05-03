@@ -5,6 +5,7 @@ import "./globals.css";
 import BackgroundGrid from "@/components/BackgroundGrid";
 import LiveTicker from "@/components/LiveTicker";
 import ScrollProgress from "@/components/ScrollProgress";
+import CTAFeedback from "@/components/CTAFeedback";
 
 const dinish = localFont({
   src: "./fonts/DINish-VF.woff2",
@@ -55,6 +56,7 @@ export default function RootLayout({
         <BackgroundGrid />
         {children}
         <LiveTicker />
+        <CTAFeedback />
       </body>
     </html>
   );
