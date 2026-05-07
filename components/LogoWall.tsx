@@ -17,9 +17,9 @@ type Partner = {
 const partners: readonly Partner[] = [
   { name: "Microsoft", file: "microsoft.svg", w: 338, h: 72 },
   { name: "Google", file: "google.svg", w: 272, h: 92 },
-  { name: "AWS", file: "aws.svg", w: 304, h: 182 },
+  { name: "AWS", file: "aws.svg", w: 301, h: 180 },
   { name: "Circle", file: "circle.avif", w: 391, h: 100 },
-  { name: "Tencent Cloud", file: "tencent-cloud.svg", w: 1053, h: 720, boost: true },
+  { name: "Tencent Cloud", file: "tencent-cloud.svg", w: 552, h: 486, boost: true },
   { name: "OVHcloud", file: "ovhcloud.svg", w: 308, h: 47 },
   { name: "Creao", file: "creao.png", w: 463, h: 169 },
   { name: "Station F", file: "stationf.png", w: 420, h: 76 },
