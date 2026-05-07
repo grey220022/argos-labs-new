@@ -19,7 +19,7 @@ const partners: readonly Partner[] = [
   { name: "Google", file: "google.svg", w: 272, h: 92 },
   { name: "AWS", file: "aws.svg", w: 301, h: 180 },
   { name: "Circle", file: "circle.avif", w: 391, h: 100 },
-  { name: "Tencent Cloud", file: "tencent-cloud.svg", w: 552, h: 486, boost: true },
+  { name: "Tencent Cloud", file: "tencent-cloud.svg", w: 719, h: 564, boost: true },
   { name: "OVHcloud", file: "ovhcloud.svg", w: 308, h: 47 },
   { name: "Creao", file: "creao.png", w: 463, h: 169 },
   { name: "Station F", file: "stationf.png", w: 420, h: 76 },

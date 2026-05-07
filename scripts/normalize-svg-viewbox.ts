@@ -9,12 +9,12 @@ import { readFileSync, writeFileSync } from "node:fs";
 import { svgPathBbox } from "svg-path-bbox";
 
 const FILES = [
-  "aws.svg",
-  "googlecloud-wordmark.svg",
-  "azure-wordmark.svg",
-  "alibabacloud-wordmark.svg",
+  "aws-lockup.svg",
+  "googlecloud-lockup.svg",
+  "azure-lockup.svg",
+  "alibabacloud-lockup.svg",
   "tencent-cloud.svg",
-  "ovhcloud.svg",
+  "ovhcloud-lockup.svg",
 ];
 
 type Box = [number, number, number, number]; // [minX, minY, maxX, maxY]

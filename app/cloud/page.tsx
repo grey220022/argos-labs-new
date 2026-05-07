@@ -25,12 +25,12 @@ type Provider = {
 };
 
 const providers: readonly Provider[] = [
-  { name: "AWS", file: "aws.svg", w: 301, h: 180 },
-  { name: "Google Cloud", file: "googlecloud-wordmark.svg", w: 112, h: 53 },
-  { name: "Microsoft Azure", file: "azure-wordmark.svg", w: 112, h: 31 },
-  { name: "Alibaba Cloud", file: "alibabacloud-wordmark.svg", w: 106, h: 15 },
-  { name: "Tencent Cloud", file: "tencent-cloud.svg", w: 552, h: 486, boost: true },
-  { name: "OVHcloud", file: "ovhcloud.svg", w: 308, h: 47 },
+  { name: "AWS", file: "aws-lockup.svg", w: 255, h: 152 },
+  { name: "Google Cloud", file: "googlecloud-lockup.svg", w: 256, h: 206 },
+  { name: "Microsoft Azure", file: "azure-lockup.svg", w: 256, h: 241 },
+  { name: "Alibaba Cloud", file: "alibabacloud-lockup.svg", w: 24, h: 15 },
+  { name: "Tencent Cloud", file: "tencent-cloud.svg", w: 719, h: 564 },
+  { name: "OVHcloud", file: "ovhcloud-lockup.svg", w: 24, h: 14 },
 ];
 
 const models = [
