@@ -23,6 +23,31 @@ export default function Home() {
       <main className="relative mx-auto max-w-[1500px] px-6 py-16 sm:px-12 sm:py-24 lg:px-24">
       <HeroIntro />
 
+      {/* Hero with full-bleed video background.
+          - Negative margins escape main's px-* so video reaches viewport edges
+          - inner padding restored so the grid layout is unchanged
+          - isolate creates a stacking context, video/overlay sit at -z-10
+          - motion-reduce:hidden swaps to a static dark surface for reduced-motion users */}
+      <div className="relative isolate -mx-6 px-6 sm:-mx-12 sm:px-12 lg:-mx-24 lg:px-24">
+        <video
+          aria-hidden
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          className="pointer-events-none absolute inset-0 -z-10 h-full w-full object-cover opacity-45 motion-reduce:hidden"
+        >
+          <source
+            src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260422_112520_ee819691-f2e8-4c54-bb77-3fb72c84eaa5.mp4"
+            type="video/mp4"
+          />
+        </video>
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-br from-bg/85 via-bg/55 to-bg/30"
+        />
+
       <div className="grid gap-12 lg:grid-cols-[1fr_minmax(0,520px)] lg:items-center lg:gap-16">
         <div>
           <p
@@ -69,6 +94,7 @@ export default function Home() {
         <div className="mx-auto mt-12 w-full max-w-[320px] sm:max-w-[420px] lg:mt-0 lg:max-w-[520px]">
           <HeroVisual />
         </div>
+      </div>
       </div>
 
       <LogoWall />
