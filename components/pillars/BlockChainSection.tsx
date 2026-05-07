@@ -19,7 +19,10 @@ const products: readonly Product[] = [
       "Zero-knowledge proof security, no seed phrases",
       "Non-custodial — users always own their keys",
     ],
-    cta: { label: "Read the SDK docs", href: "#" },
+    cta: {
+      label: "Talk to engineering",
+      href: "mailto:contact@argoslabs.io?subject=Soll%20Protocol%20SDK",
+    },
   },
   {
     name: "Sollpay",

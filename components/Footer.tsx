@@ -36,7 +36,7 @@ export default function Footer() {
             <span aria-hidden className="text-fg-5">↗</span>
           </a>
           <p className="font-mono text-[10px] tracking-[0.2em] text-fg-5">
-            © {year} Argos Lab. All rights reserved.
+            © {year} Argos Labs. All rights reserved.
           </p>
         </div>
       </div>

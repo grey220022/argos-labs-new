@@ -21,15 +21,34 @@ const jetbrainsMono = JetBrains_Mono({
   weight: ["400", "500"],
 });
 
+const SITE_URL = "https://argos-labs-wine.vercel.app";
+const SITE_NAME = "Argos Labs";
+const SITE_DESCRIPTION =
+  "Agents · Cloud · Growth · BlockChain. The platform behind execution.";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: "Argos Labs — All-in-One AI Execution Platform",
-  description:
-    "Agents · Cloud · Growth · BlockChain. The platform behind execution.",
+  description: SITE_DESCRIPTION,
   // Stop WeChat / iOS Safari from auto-linkifying numbers like "100+", "99.99%"
   formatDetection: {
     telephone: false,
     email: false,
     address: false,
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: SITE_URL,
+    siteName: SITE_NAME,
+    title: "Argos Labs — All-in-One AI Execution Platform",
+    description: SITE_DESCRIPTION,
+    // app/opengraph-image.tsx is auto-picked up by Next.js for the / route
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Argos Labs — All-in-One AI Execution Platform",
+    description: SITE_DESCRIPTION,
   },
 };
 
@@ -38,7 +57,7 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 5,
   viewportFit: "cover",
-  themeColor: "#252423",
+  themeColor: "#000000",
 };
 
 export default function RootLayout({

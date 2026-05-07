@@ -24,7 +24,7 @@ const pillars: readonly Pillar[] = [
   {
     pillar: "cloud",
     name: "Cloud",
-    tagline: "The compute substrate underneath every agent.",
+    tagline: "Multi-cloud compute for AI, Web3, and fintech.",
     bullets: [
       "GPU + CPU autoscale, multi-region",
       "Pay-per-execution pricing, no idle cost",

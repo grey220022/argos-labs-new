@@ -23,10 +23,10 @@ Every pixel serves this. Agents that ship work, infra that doesn't blink, growth
 
 ## Aesthetic Direction
 
-- **Direction**: Industrial / Refined Tech. Warm dark, type-driven, motion as proof-of-craft.
+- **Direction**: Industrial / Refined Tech. Pure-black canvas, type-driven, motion as proof-of-craft.
 - **Decoration level**: Minimal. No illustrations, no patterns, no gradient backgrounds. Typography + restrained motion does the work.
 - **Mood**: Calm authority. The page reads like a serious workshop, not a product launch banner.
-- **Reference**: animejs.com — for the design *language* only (warm dark base, ease-out motion grammar, type density). Do **not** copy distinctive creative content; treat it as a token library. Full extraction at `reference-animejs/INFO.md`.
+- **Reference**: animejs.com — for the design *language* only (ease-out motion grammar, type density). The original token base was warm-dark; we flipped to pure black 2026-05-03 (see Decisions Log). Do **not** copy distinctive creative content; treat it as a token library.
 
 ---
 
@@ -153,7 +153,7 @@ Responsive jumps via `clamp()` between 699/899/1199 breakpoints.
 
 - **Approach**: Hybrid. Marketing sections = creative-editorial (asymmetry, off-grid alignment); product/data sections (when they appear in docs/dashboard) = strict 12-col grid.
 - **Max content width**: 1500px
-- **Header height**: 3.5rem (mobile) / 4.5rem (desktop)
+- **Header height**: 3.5rem (mobile) / 4.5rem (desktop) — *spec only; v1 launches with no header. Pillar nav lives in-hero, see PillarNav.tsx.*
 - **Breakpoints** (`max-width`): 699px / 899px / 1199px
 
 ### Border radius
@@ -306,3 +306,5 @@ Inside the section: borders, hovers, links all reference `var(--accent)`. Outsid
 | 2026-05-02 | Dark-only at launch. | Half-baked light modes are worse than none. Revisit when there's a real consumer surface. |
 | 2026-05-02 | Anime.js wrapped behind `lib/motion.ts` with 4 presets. | App code never touches anime.js directly; motion changes happen in one file. |
 | 2026-05-03 | Base palette flipped from warm-dark to pure-black neutral. `--bg` `#252423` → `#000000`; `--bg-2..7` and `--fg-*` rebuilt as neutral grays (`#0a0a0a → #383838`, `#fafafa → #2a2a2a`). | Stakeholder request for "纯黑色" canvas. Full ramp recalibration (option B) so cards/dividers/text don't visually clash with the new base. Pillar hues unchanged — they still own their sections. |
+| 2026-05-08 | Hero video background added on `/` (desktop only, `hidden md:block`). | Stakeholder add-on. Acknowledged as an exception to "no decoration / no patterns / no gradient backgrounds" rule for the hero only. Mobile keeps pure-black per the original aesthetic to preserve LCP and text readability. |
+| 2026-05-08 | OpenGraph + Twitter card metadata added; OG image generated at build time via `app/opengraph-image.tsx` + `next/og`; `app/robots.ts` and `app/sitemap.ts` added. `themeColor` updated `#252423` → `#000000` to match base palette flip. | Audit findings. Marketing site SEO / social-share hygiene. |

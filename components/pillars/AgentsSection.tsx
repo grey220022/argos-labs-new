@@ -20,7 +20,6 @@ const features = [
 const codeSample = `import { Agent } from "@argos/agents";
 
 const research = new Agent({
-  model: "argos-lg",
   tools: ["browser", "shell", "search"],
   budget: { tokens: 100_000, time: "10m" },
 });
