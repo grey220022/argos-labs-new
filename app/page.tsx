@@ -36,7 +36,7 @@ export default function Home() {
           loop
           playsInline
           preload="metadata"
-          className="pointer-events-none absolute inset-0 -z-10 h-full w-full object-cover opacity-45 motion-reduce:hidden"
+          className="pointer-events-none absolute inset-0 -z-10 h-full w-full object-cover opacity-80 motion-reduce:hidden"
         >
           <source
             src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260422_112520_ee819691-f2e8-4c54-bb77-3fb72c84eaa5.mp4"
@@ -45,7 +45,7 @@ export default function Home() {
         </video>
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-br from-bg/85 via-bg/55 to-bg/30"
+          className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-br from-bg/60 via-bg/25 to-transparent"
         />
 
       <div className="grid gap-12 lg:grid-cols-[1fr_minmax(0,520px)] lg:items-center lg:gap-16">
