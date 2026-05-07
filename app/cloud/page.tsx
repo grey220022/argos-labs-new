@@ -30,10 +30,7 @@ const providers: readonly Provider[] = [
   { name: "Microsoft Azure", file: "azure-wordmark.svg", w: 120, h: 60 },
   { name: "Alibaba Cloud", file: "alibabacloud-wordmark.svg", w: 120, h: 60 },
   { name: "Tencent Cloud", file: "tencent-cloud.svg", w: 1053, h: 720, boost: true },
-  { name: "Huawei Cloud", file: "huawei-wordmark.svg", w: 120, h: 60 },
   { name: "OVHcloud", file: "ovhcloud.svg", w: 298, h: 47 },
-  { name: "Cloudflare", file: "cloudflare-wordmark.svg", w: 120, h: 60 },
-  { name: "Solana", file: "solana.svg", w: 646, h: 96 },
 ];
 
 const models = [
@@ -99,7 +96,7 @@ const promises = [
   },
   {
     title: "Every Payment Rail",
-    body: "Credit card, wire, SEPA, SWIFT, and stablecoin. Multi-currency settlement in USD, EUR, SGD, or stablecoin — one bill across every cloud.",
+    body: "Credit card, wire, SEPA, SWIFT, and stablecoin. Multi-currency settlement in USD, EUR, or stablecoin — one bill across every cloud.",
   },
   {
     title: "24/7 Global Support",
