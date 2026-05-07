@@ -1,23 +1,23 @@
 @import "tailwindcss";
 
 @theme {
-  /* Base — warm dark, not pure black */
-  --color-bg: #252423;
-  --color-bg-2: #2a2928;
-  --color-bg-3: #2f2e2d;
-  --color-bg-4: #353433;
-  --color-bg-5: #3a3938;
-  --color-bg-6: #3f3e3d;
-  --color-bg-7: #444342;
+  /* Base — pure black neutral system (Decisions Log 2026-05-03) */
+  --color-bg: #000000;
+  --color-bg-2: #0a0a0a;
+  --color-bg-3: #141414;
+  --color-bg-4: #1d1d1d;
+  --color-bg-5: #262626;
+  --color-bg-6: #2e2e2e;
+  --color-bg-7: #383838;
 
-  --color-fg: #f6f4f2;
-  --color-fg-2: #d5d3d1;
-  --color-fg-3: #b4b1af;
-  --color-fg-4: #93908e;
-  --color-fg-5: #625d5b;
-  --color-fg-6: #474543;
-  --color-fg-7: #393735;
-  --color-fg-8: #2c2a28;
+  --color-fg: #fafafa;
+  --color-fg-2: #d4d4d4;
+  --color-fg-3: #b3b3b3;
+  --color-fg-4: #919191;
+  --color-fg-5: #5e5e5e;
+  --color-fg-6: #454545;
+  --color-fg-7: #383838;
+  --color-fg-8: #2a2a2a;
 
   /* Brand + pillar hues — each pillar owns one, scoped to its section */
   --color-brand: #7c85ff;

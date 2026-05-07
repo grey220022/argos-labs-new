@@ -33,16 +33,16 @@ Every pixel serves this. Agents that ship work, infra that doesn't blink, growth
 ## Color
 
 ### Approach
-**Restrained-with-pillar-family**. Most surfaces are warm-dark + warm-white-grey. Color appears only to mark a pillar's territory. Four pillars, four hues, one warm-black base.
+**Restrained-with-pillar-family**. Most surfaces are pure-black + neutral-grey. Color appears only to mark a pillar's territory. Four pillars, four hues, one pure-black base.
 
 ### Base (always present)
 
 | Token | Value | Use |
 |---|---|---|
-| `--bg` | `#252423` | Page background. Warm black, not pure `#000`. |
-| `--bg-2 ~ bg-7` | `#2a2928` → `#444342` | Surfaces, cards, dividers (7 ramp steps from animejs base scale) |
-| `--fg` | `#f6f4f2` | Primary text. Warm off-white. |
-| `--fg-2 ~ fg-8` | `#d5d3d1` → `#2c2a28` | Muted text → near-invisible labels |
+| `--bg` | `#000000` | Page background. Pure black. |
+| `--bg-2 ~ bg-7` | `#0a0a0a` → `#383838` | Surfaces, cards, dividers (7 neutral ramp steps) |
+| `--fg` | `#fafafa` | Primary text. Near-white, slight off for less harshness. |
+| `--fg-2 ~ fg-8` | `#d4d4d4` → `#2a2a2a` | Muted text → near-invisible labels |
 
 ### Brand primary
 **Indigo `#7c85ff`** (`--brand`). Used for: focus rings, primary CTA, hero accent character, top-of-fold ambient glow, default link color in editorial sections.
@@ -305,3 +305,4 @@ Inside the section: borders, hovers, links all reference `var(--accent)`. Outsid
 | 2026-05-02 | Spacing scale skips 32/48px deliberately. | Forces layouts to either tighten or jump to a break; eliminates the "every section feels the same" rhythm trap. |
 | 2026-05-02 | Dark-only at launch. | Half-baked light modes are worse than none. Revisit when there's a real consumer surface. |
 | 2026-05-02 | Anime.js wrapped behind `lib/motion.ts` with 4 presets. | App code never touches anime.js directly; motion changes happen in one file. |
+| 2026-05-03 | Base palette flipped from warm-dark to pure-black neutral. `--bg` `#252423` → `#000000`; `--bg-2..7` and `--fg-*` rebuilt as neutral grays (`#0a0a0a → #383838`, `#fafafa → #2a2a2a`). | Stakeholder request for "纯黑色" canvas. Full ramp recalibration (option B) so cards/dividers/text don't visually clash with the new base. Pillar hues unchanged — they still own their sections. |
