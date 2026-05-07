@@ -158,7 +158,7 @@ export default function CloudPage() {
           <CharStagger selector="[data-cloud-h1]" />
 
           <p className="mt-8 max-w-2xl text-base leading-relaxed text-fg-3 sm:text-lg">
-            We help enterprises build with AI — agents, infra, growth, on-chain.
+            We help enterprises build with AI.
           </p>
 
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-fg-3 sm:text-lg">

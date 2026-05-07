@@ -36,7 +36,7 @@ export default function Home() {
           loop
           playsInline
           preload="metadata"
-          className="pointer-events-none absolute inset-0 -z-10 h-full w-full object-cover opacity-80 motion-reduce:hidden"
+          className="pointer-events-none absolute inset-0 -z-10 h-full w-full object-cover motion-reduce:hidden"
         >
           <source
             src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260422_112520_ee819691-f2e8-4c54-bb77-3fb72c84eaa5.mp4"
@@ -68,7 +68,7 @@ export default function Home() {
             data-hero="lead"
             className="mt-6 max-w-2xl text-base leading-relaxed text-fg-3 sm:text-lg"
           >
-            We help enterprises build with AI — agents, infra, growth, on-chain.
+            We help enterprises build with AI.
           </p>
 
           <PillarNav pillars={pillars} />
