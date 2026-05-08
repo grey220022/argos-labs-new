@@ -45,6 +45,30 @@
   --duration-4: 1200ms;
   --ease-out: cubic-bezier(0, 0, 0.2, 1);
   --ease-inout: cubic-bezier(0.5, 0, 0.5, 1);
+
+  /* Background grid dot — boosted on mobile to compensate for no hero video */
+  --grid-dot: rgba(250, 250, 250, 0.07);
+}
+@media (max-width: 767px) {
+  :root {
+    --grid-dot: rgba(250, 250, 250, 0.12);
+  }
+}
+
+/* Hero ambient glow — mobile-only, fills the visual gap left by the desktop video.
+   Pulse role per DESIGN.md §Motion (top-of-fold ambient glow). */
+@keyframes hero-glow-breathe {
+  0%, 100% { opacity: 0.5; }
+  50%      { opacity: 0.85; }
+}
+.hero-glow-breathe {
+  animation: hero-glow-breathe 6s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-glow-breathe {
+    animation: none;
+    opacity: 0.5;
+  }
 }
 
 html {

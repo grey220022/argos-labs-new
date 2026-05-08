@@ -49,6 +49,17 @@ export default function Home() {
           className="pointer-events-none absolute inset-0 -z-10 hidden bg-gradient-to-br from-bg/60 via-bg/25 to-transparent md:block"
         />
 
+        {/* Mobile ambient glow — replaces the desktop video as the hero's
+            atmospheric layer. Soft indigo radial breath, Pulse role per DESIGN.md. */}
+        <div
+          aria-hidden
+          className="hero-glow-breathe pointer-events-none absolute inset-x-0 top-0 -z-10 h-[80%] md:hidden"
+          style={{
+            background:
+              "radial-gradient(circle at 50% 30%, rgba(124, 133, 255, 0.28), transparent 60%)",
+          }}
+        />
+
       <div className="grid gap-12 lg:grid-cols-[1fr_minmax(0,520px)] lg:items-center lg:gap-16">
         <div>
           <p

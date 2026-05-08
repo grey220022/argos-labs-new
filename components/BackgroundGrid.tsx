@@ -18,9 +18,15 @@ export default function BackgroundGrid() {
     const flashLayer = flashLayerRef.current;
     if (!el || reduced()) return;
 
-    // Layer A — base grid breathes (existing behavior)
+    // Mobile: no hero video, so grid carries more visual weight
+    const isMobile = window.matchMedia("(max-width: 767px)").matches;
+    const breatheLow = isMobile ? 0.6 : 0.45;
+    const flickerMin = isMobile ? 2000 : 3500;
+    const flickerRange = isMobile ? 1500 : 3000;
+
+    // Layer A — base grid breathes
     const breathe = animate(el, {
-      opacity: [0.45, 1, 0.45],
+      opacity: [breatheLow, 1, breatheLow],
       duration: 4800,
       ease: "inOutSine",
       loop: true,
@@ -71,8 +77,8 @@ export default function BackgroundGrid() {
         if (dot.parentNode) dot.parentNode.removeChild(dot);
       }, 1100);
 
-      // Schedule next: 3.5–6.5s
-      const next = 3500 + Math.random() * 3000;
+      // Mobile: 2–3.5s. Desktop: 3.5–6.5s.
+      const next = flickerMin + Math.random() * flickerRange;
       timer = setTimeout(spawn, next);
     };
 
@@ -103,7 +109,7 @@ export default function BackgroundGrid() {
         className="pointer-events-none fixed inset-0 -z-10 opacity-[0.45]"
         style={{
           backgroundImage:
-            "radial-gradient(circle at center, rgba(246,244,242,0.07) 1px, transparent 1.5px)",
+            "radial-gradient(circle at center, var(--grid-dot) 1px, transparent 1.5px)",
           backgroundSize: `${GRID}px ${GRID}px`,
         }}
       />
