@@ -27,6 +27,8 @@ export default function Home() {
           - Negative margins escape main's px-* so video reaches viewport edges
           - inner padding restored so the grid layout is unchanged
           - isolate creates a stacking context, video/overlay sit at -z-10
+          - mobile gets a 480p / 268KB re-encode via <source media>; desktop
+            keeps the 1080p CDN file
           - motion-reduce:hidden swaps to a static dark surface for reduced-motion users */}
       <div className="relative isolate -mx-6 px-6 sm:-mx-12 sm:px-12 lg:-mx-24 lg:px-24">
         <video
@@ -37,27 +39,22 @@ export default function Home() {
           playsInline
           preload="metadata"
           poster="/images/hero-poster.jpg"
-          className="pointer-events-none absolute inset-0 -z-10 hidden h-full w-full object-cover motion-reduce:hidden md:block"
+          className="pointer-events-none absolute inset-0 -z-10 h-full w-full object-cover motion-reduce:hidden"
         >
+          <source
+            src="/videos/hero-mobile.mp4"
+            type="video/mp4"
+            media="(max-width: 767px)"
+          />
           <source
             src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260422_112520_ee819691-f2e8-4c54-bb77-3fb72c84eaa5.mp4"
             type="video/mp4"
+            media="(min-width: 768px)"
           />
         </video>
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 -z-10 hidden bg-gradient-to-br from-bg/60 via-bg/25 to-transparent md:block"
-        />
-
-        {/* Mobile ambient glow — replaces the desktop video as the hero's
-            atmospheric layer. Soft indigo radial breath, Pulse role per DESIGN.md. */}
-        <div
-          aria-hidden
-          className="hero-glow-breathe pointer-events-none absolute inset-x-0 top-0 -z-10 h-[80%] md:hidden"
-          style={{
-            background:
-              "radial-gradient(circle at 50% 30%, rgba(124, 133, 255, 0.28), transparent 60%)",
-          }}
+          className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-br from-bg/60 via-bg/25 to-transparent"
         />
 
       <div className="grid gap-12 lg:grid-cols-[1fr_minmax(0,520px)] lg:items-center lg:gap-16">
