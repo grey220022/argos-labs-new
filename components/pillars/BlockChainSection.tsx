@@ -42,7 +42,7 @@ export default function BlockChainSection() {
     <PillarSection
       pillar="chain"
       id="chain"
-      eyebrow="BlockChain"
+      eyebrow="Payment"
       heading="On-chain rails for mainstream consumer reach."
       subheading="Two products, one philosophy: crypto without the friction. Built on Solana, secured with zero-knowledge proofs."
     >

@@ -14,7 +14,7 @@ const pillars = [
   { id: "agents", name: "Agents" },
   { id: "cloud", name: "Cloud" },
   { id: "growth", name: "Growth" },
-  { id: "chain", name: "BlockChain" },
+  { id: "chain", name: "Payment" },
 ] as const;
 
 export default function Home() {
