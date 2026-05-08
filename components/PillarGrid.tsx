@@ -63,11 +63,8 @@ export default function PillarGrid() {
         id="pillars-heading"
         className="max-w-2xl font-display text-3xl font-semibold leading-[1.05] tracking-tight text-fg sm:text-5xl"
       >
-        Four products. Zero integration tax.
+        Four services. Built to ship. Engineered to scale.
       </h2>
-      <p className="mt-4 max-w-2xl text-base text-fg-3 sm:text-lg">
-        And the best global growth service in the pack.
-      </p>
 
       <Reveal
         gap={80}
