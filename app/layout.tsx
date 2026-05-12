@@ -24,7 +24,7 @@ const jetbrainsMono = JetBrains_Mono({
 const SITE_URL = "https://argos-labs-wine.vercel.app";
 const SITE_NAME = "Argos Labs";
 const SITE_DESCRIPTION =
-  "Agents · Cloud · Growth · Payment. The platform behind execution.";
+  "Agents · Cloud · Growth · Onchain. The platform behind execution.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

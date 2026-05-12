@@ -45,7 +45,7 @@ const pillars: readonly Pillar[] = [
   },
   {
     pillar: "chain",
-    name: "Payment",
+    name: "Onchain",
     tagline: "On-chain rails for mainstream consumer reach.",
     bullets: [
       "Soll Protocol — smart wallet SDK on Solana",

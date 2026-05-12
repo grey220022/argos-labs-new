@@ -6,7 +6,6 @@ import PillarNav from "@/components/PillarNav";
 import AgentsSection from "@/components/pillars/AgentsSection";
 import CloudSection from "@/components/pillars/CloudSection";
 import GrowthSection from "@/components/pillars/GrowthSection";
-import BlockChainSection from "@/components/pillars/BlockChainSection";
 import ClosingBanner from "@/components/ClosingBanner";
 import Footer from "@/components/Footer";
 
@@ -14,7 +13,7 @@ const pillars = [
   { id: "agents", name: "Agents" },
   { id: "cloud", name: "Cloud" },
   { id: "growth", name: "Growth" },
-  { id: "chain", name: "Payment" },
+  { id: "chain", name: "Onchain" },
 ] as const;
 
 export default function Home() {
@@ -112,7 +111,6 @@ export default function Home() {
       <AgentsSection />
       <CloudSection />
       <GrowthSection />
-      <BlockChainSection />
 
       </main>
 

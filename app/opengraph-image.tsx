@@ -67,7 +67,7 @@ export default async function Image() {
             marginTop: 36,
           }}
         >
-          Agents  ·  Cloud  ·  Growth  ·  Payment
+          Agents  ·  Cloud  ·  Growth  ·  Onchain
         </div>
 
         <div

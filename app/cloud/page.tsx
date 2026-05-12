@@ -95,7 +95,7 @@ const promises = [
   },
   {
     title: "Every Payment Rail",
-    body: "Credit card, wire, SEPA, SWIFT, and stablecoin. Multi-currency settlement in USD, EUR, or stablecoin — one bill across every cloud.",
+    body: "Credit card, wire, SEPA, SWIFT. Multi-currency settlement in USD or EUR — one bill across every cloud.",
   },
   {
     title: "24/7 Global Support",
