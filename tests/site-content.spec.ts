@@ -3,7 +3,7 @@ import { expect, test } from "@playwright/test";
 const retiredContent =
   /\b(?:crypto(?:currency)?|blockchain|web3|on[- ]?chain|solana|ethereum|evm|sollpay|soll protocol|walletconnect|defi|nft|stablecoin)\b/i;
 
-test("homepage keeps working service links and all remaining partner assets", async ({
+test("homepage keeps working service links and all requested network logos", async ({
   page,
   request,
   isMobile,
@@ -30,25 +30,36 @@ test("homepage keeps working service links and all remaining partner assets", as
 
   const partners = page.locator('section[aria-labelledby="trusted-by"]');
   const images = partners.locator("img");
-  await expect(images).toHaveCount(14);
+  await expect(images).toHaveCount(25);
+  for (const name of [
+    "Alibaba Cloud", "MiniMax", "Z.ai", "Shanghai Jiao Tong University",
+    "Beihang University", "Renmin University of China", "Seoul National University",
+    "MIT", "ByteDance", "TikTok", "OVHcloud",
+  ]) {
+    await expect(partners.locator(`img[alt="${name}"]`)).toHaveCount(1);
+  }
   if (isMobile) {
     await expect(partners.locator("img:visible")).toHaveCount(7);
-    const toggle = partners.getByRole("button", { name: "Show 7 more" });
+    const toggle = partners.getByRole("button", { name: "Show 18 more" });
+    await expect(toggle).toHaveAttribute("aria-controls", "network-logos");
     await toggle.focus();
     await page.keyboard.press("Enter");
     await expect(partners.getByRole("button")).toHaveAttribute("aria-expanded", "true");
-    await expect(partners.locator("img:visible")).toHaveCount(14);
+    await expect(partners.locator("img:visible")).toHaveCount(25);
   }
   for (const image of await images.all()) {
     const source = await image.getAttribute("src");
     expect(source).toBeTruthy();
     expect((await request.get(source!)).ok()).toBeTruthy();
+    await image.scrollIntoViewIfNeeded();
+    await expect.poll(() => image.evaluate((element: HTMLImageElement) => element.complete && element.naturalWidth > 0)).toBe(true);
   }
   expect(await page.locator("body").textContent()).not.toMatch(retiredContent);
   await expect(page.getByText("Track model tokens and compute time.")).toBeVisible();
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
   await page.screenshot({ path: testInfo.outputPath("home.png"), fullPage: true, scale: "css" });
   await page.locator("#pillars").screenshot({ path: testInfo.outputPath("services.png"), scale: "css" });
+  await partners.screenshot({ path: testInfo.outputPath("network.png"), scale: "css" });
 
   if (isMobile) {
     await partners.getByRole("button", { name: "Show less" }).click();
