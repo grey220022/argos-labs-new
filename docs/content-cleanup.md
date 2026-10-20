@@ -36,7 +36,34 @@ Actual verification is recorded separately below.
 - Alternative layouts considered: a wider lead Agents card, or three full-width editorial rows. Use the existing card language for minimal change.
 - This avoids generic redesign by retaining the site's typography, graphic and service-specific visual identity.
 - Protected environment/auth/migration files are outside this change.
+- GPTDAO remains: its [official description](https://gptdao.ai/category/) identifies a generative-AI community, not a wallet/trading service. A name substring alone is not grounds to remove an AI partner.
+- The 2026-05-02 historical decision in `DESIGN.md` retains the former positioning for provenance; it is not published by the website. Regression test fixtures intentionally name removed content.
+- The press archive contains only the two Argos wordmark SVGs. The hero poster depicts architecture and plants.
 
 ## Actual verification
 
-Pending implementation. No test has been claimed as passed.
+Executed on 2026-10-20:
+
+- `bun run lint`: passed. Excluded local third-party `reference-animejs` downloads
+  from linting; these are ignored research artifacts, not application source.
+- `bun x tsc --noEmit`: passed.
+- `bun run build`: passed; `/`, `/cloud`, sitemap and robots statically generated.
+  The existing OG edge route remains dynamic (Next.js emits its existing notice).
+- `PLAYWRIGHT_CHANNEL=chrome bun run test:e2e`: **8 passed (14.8s)** against the
+  production build, using installed Google Chrome with desktop and iPhone 13
+  viewport emulation. This is not a claim of testing physical iOS Safari.
+- First browser run: 6 passed, 2 desktop timeouts while waiting for the existing
+  external background video to finish loading. Tests now wait for DOM readiness
+  and assert page/interaction readiness explicitly; all 8 then passed.
+- Verified three service links/cards/SVG sectors, all remaining 14 partner assets,
+  mobile keyboard expansion/collapse, client-side Cloud navigation, retained model
+  token billing and ordinary bank payment copy, no horizontal overflow, page-error
+  collection, metadata/SSR text, generated OG image response, sitemap and 404s for
+  both nonexistent retired routes plus all 12 removed public logos.
+- Inspected desktop service-card and mobile homepage/Cloud screenshots. Screenshots
+  are local ignored outputs under `test-results/`; generated test code is committed.
+- Production source scan: no retired business terms in `app`, `components`, `lib`,
+  `public` or `INFO.md`. The historical design decision and test fixtures are
+  intentional non-published exceptions.
+- No production database, protected file, deployment setting or primary-branch
+  history was changed. Publish via the review branch and PR.
