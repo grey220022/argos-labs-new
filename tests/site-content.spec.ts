@@ -17,10 +17,6 @@ test("homepage keeps working service links and all remaining partner assets", as
   const nav = page.getByRole("navigation", { name: "Pillars" });
   await expect(nav.getByRole("link")).toHaveText(["Agents", "Cloud", "Growth"]);
   await expect(page.locator("#pillars article")).toHaveCount(3);
-  await expect(page.locator("[data-labels] text")).toHaveText(["AGENTS", "CLOUD", "GROWTH"]);
-  for (const arc of await page.locator("[data-arc]").all()) {
-    await expect(arc).toHaveAttribute("stroke-dashoffset", "0");
-  }
 
   for (const link of await page.locator('a[href^="#"]').all()) {
     const href = await link.getAttribute("href");
@@ -119,12 +115,21 @@ test("metadata, social artwork and retired public URLs are clean", async ({ page
   }
 });
 
-test("normal-motion hero cycles only through current services", async ({ page }) => {
+test("service brief supports keyboard choices and honest email handoff", async ({ page }) => {
   await page.goto("/", { waitUntil: "domcontentloaded" });
-  const nav = page.getByRole("navigation", { name: "Pillars" });
-  await expect(nav.getByRole("link")).toHaveCount(3);
-  await expect(nav.locator('[data-pillar="growth"]')).toHaveAttribute("data-cycle-active", "true", { timeout: 6000 });
-  await expect(nav.locator('[data-pillar="agents"]')).toHaveAttribute("data-cycle-active", "true", { timeout: 6000 });
-  await expect(page.locator("[data-arc]")).toHaveCount(3);
-  await expect(page.locator('[data-pillar="chain"], [data-arc="chain"]')).toHaveCount(0);
+  const agents = page.getByRole("radio", { name: "Agents", exact: true });
+  await expect(agents).toBeChecked();
+  await agents.focus();
+  await page.keyboard.press("ArrowRight");
+  await expect(page.getByRole("radio", { name: "Cloud", exact: true })).toBeChecked();
+  const cloud = page.getByRole("link", { name: "Discuss Cloud" });
+  const href = await cloud.getAttribute("href");
+  expect(decodeURIComponent(href!)).toContain("Argos Labs — Cloud project");
+  expect(decodeURIComponent(href!)).toContain("Our workload, current cloud and target regions");
+  await page.keyboard.press("ArrowRight");
+  await expect(page.getByRole("radio", { name: "Growth", exact: true })).toBeChecked();
+  await expect(page.getByRole("link", { name: "Discuss Growth" })).toBeVisible();
+  await page.getByText("Photography & credits", { exact: true }).click();
+  await expect(page.getByText("Public campus photographs", { exact: false })).toBeVisible();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
 });
