@@ -14,6 +14,8 @@ const eslintConfig = defineConfig([
     "next-env.d.ts",
     // Local third-party research is not application source.
     "reference-animejs/**",
+    ".agents/**",
+    ".taste-skill/**",
     "playwright-report/**",
     "test-results/**",
   ]),
