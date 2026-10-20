@@ -24,7 +24,6 @@
   --color-hue-agents: #7c85ff;
   --color-hue-cloud:  #26f2d5;
   --color-hue-growth: #ff7d36;
-  --color-hue-chain:  #b7ff54;
 
   /* Semantic */
   --color-success: #8dff55;
@@ -94,7 +93,6 @@ body {
 [data-pillar="agents"] { --accent: var(--color-hue-agents); }
 [data-pillar="cloud"]  { --accent: var(--color-hue-cloud); }
 [data-pillar="growth"] { --accent: var(--color-hue-growth); }
-[data-pillar="chain"]  { --accent: var(--color-hue-chain); }
 
 /* Terminal-style caret for agent code block. Inherits the section's accent hue. */
 @keyframes agent-caret-blink {
@@ -121,11 +119,9 @@ body {
 html:has([data-hero="pillars"] [data-pillar="agents"]:hover) section[data-pillar="agents"] [data-eyebrow-dot],
 html:has([data-hero="pillars"] [data-pillar="cloud"]:hover)  section[data-pillar="cloud"]  [data-eyebrow-dot],
 html:has([data-hero="pillars"] [data-pillar="growth"]:hover) section[data-pillar="growth"] [data-eyebrow-dot],
-html:has([data-hero="pillars"] [data-pillar="chain"]:hover)  section[data-pillar="chain"]  [data-eyebrow-dot],
 html:has([data-hero="pillars"] [data-pillar="agents"][data-cycle-active="true"]) section[data-pillar="agents"] [data-eyebrow-dot],
 html:has([data-hero="pillars"] [data-pillar="cloud"][data-cycle-active="true"])  section[data-pillar="cloud"]  [data-eyebrow-dot],
-html:has([data-hero="pillars"] [data-pillar="growth"][data-cycle-active="true"]) section[data-pillar="growth"] [data-eyebrow-dot],
-html:has([data-hero="pillars"] [data-pillar="chain"][data-cycle-active="true"])  section[data-pillar="chain"]  [data-eyebrow-dot] {
+html:has([data-hero="pillars"] [data-pillar="growth"][data-cycle-active="true"]) section[data-pillar="growth"] [data-eyebrow-dot] {
   transform: scale(2.2);
   box-shadow: 0 0 18px var(--accent);
 }

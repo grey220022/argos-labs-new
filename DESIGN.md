@@ -6,7 +6,7 @@
 
 ## Product Context
 
-- **What this is**: All-in-One AI Execution Platform. Marketing site (single-page, anchored sections) introducing four equal-weight pillars: **Agents · Cloud · Growth · BlockChain**.
+- **What this is**: All-in-One AI Execution Platform. Marketing site (single-page, anchored sections) introducing three equal-weight pillars: **Agents · Cloud · Growth**.
 - **Who it's for**: Enterprise decision makers (CTO / Head of AI / procurement). Trust + execution capability are the two signals to project. Not developer-first, not consumer-first.
 - **Space**: AI infra holding. Adjacent peers: Anthropic (tone), Vercel (motion), Linear (typography), Stripe (trust ladder). Not adjacent: most "AI startup with purple gradient" sites.
 - **Project type**: Marketing site (Next.js 16 App Router + Tailwind v4, per project conventions). Future: separate dashboard / docs subdomains using the same tokens.
@@ -17,7 +17,7 @@
 
 > **"The platform behind execution."**
 
-Every pixel serves this. Agents that ship work, infra that doesn't blink, growth that lands, on-chain that moves. The site itself should *feel* like running infrastructure—a low-pulse background grid, a build hash ticking in the corner, headings that compose themselves on scroll. If a design choice doesn't reinforce "this thing actually runs", drop it.
+Every pixel serves this. Agents that ship work, infra that doesn't blink, growth that lands. The site itself should *feel* like running infrastructure—a low-pulse background grid, a build hash ticking in the corner, headings that compose themselves on scroll. If a design choice doesn't reinforce "this thing actually runs", drop it.
 
 ---
 
@@ -33,7 +33,7 @@ Every pixel serves this. Agents that ship work, infra that doesn't blink, growth
 ## Color
 
 ### Approach
-**Restrained-with-pillar-family**. Most surfaces are pure-black + neutral-grey. Color appears only to mark a pillar's territory. Four pillars, four hues, one pure-black base.
+**Restrained-with-pillar-family**. Most surfaces are pure-black + neutral-grey. Color appears only to mark a pillar's territory. Three pillars, three hues, one pure-black base.
 
 ### Base (always present)
 
@@ -54,7 +54,6 @@ Every pixel serves this. Agents that ship work, infra that doesn't blink, growth
 | Agents | `--hue-agents` | `#7c85ff` (Indigo) | Pillar card border, section heading underline, in-section link, hover glow |
 | Cloud | `--hue-cloud` | `#26f2d5` (Cyan) | Same scope, scoped to its section only |
 | Growth | `--hue-growth` | `#ff7d36` (Corail) | Same |
-| BlockChain | `--hue-chain` | `#b7ff54` (Lime) | Same — deliberately *not* purple |
 
 > **Rule**: Outside its own section, a pillar hue is forbidden. No "agent indigo" appearing on a Growth card. Cross-pollination = brand drift.
 
@@ -173,11 +172,10 @@ Responsive jumps via `clamp()` between 699/899/1199 breakpoints.
 ```
 1. Hero (warm-dark, brand primary indigo accent)
 2. Logo wall — Backed By (trust before pitch)
-3. Four pillars 2×2 grid (each owns its hue)
-4. Pillar deep-dives (4 long sections, each in its hue)
+3. Three service cards (single column on smaller screens; three columns on desktop)
+4. Pillar deep-dives (3 long sections, each in its hue)
    - Agents: product-style (feature, code snippet, demo CTA)
    - Cloud: product-style
-   - BlockChain: contains Soll Protocol (B2B SDK) + Sollpay (B2C wallet)
    - Growth: services-style (consulting · ad-buying · execution · BD; case metric, "Get a quote" CTA)
 5. "We go beyond features" closing banner (typography-only, full-bleed)
 6. Footer
@@ -241,7 +239,6 @@ Wrap in `lib/motion.ts`. Expose four presets: `fadeUp`, `staggerCards`, `heroTim
   --color-hue-agents: #7c85ff;
   --color-hue-cloud:  #26f2d5;
   --color-hue-growth: #ff7d36;
-  --color-hue-chain:  #b7ff54;
 
   --font-display: "DINish", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
@@ -308,3 +305,5 @@ Inside the section: borders, hovers, links all reference `var(--accent)`. Outsid
 | 2026-05-03 | Base palette flipped from warm-dark to pure-black neutral. `--bg` `#252423` → `#000000`; `--bg-2..7` and `--fg-*` rebuilt as neutral grays (`#0a0a0a → #383838`, `#fafafa → #2a2a2a`). | Stakeholder request for "纯黑色" canvas. Full ramp recalibration (option B) so cards/dividers/text don't visually clash with the new base. Pillar hues unchanged — they still own their sections. |
 | 2026-05-08 | Hero video background added on `/` (desktop only, `hidden md:block`). | Stakeholder add-on. Acknowledged as an exception to "no decoration / no patterns / no gradient backgrounds" rule for the hero only. Mobile keeps pure-black per the original aesthetic to preserve LCP and text readability. |
 | 2026-05-08 | OpenGraph + Twitter card metadata added; OG image generated at build time via `app/opengraph-image.tsx` + `next/og`; `app/robots.ts` and `app/sitemap.ts` added. `themeColor` updated `#252423` → `#000000` to match base palette flip. | Audit findings. Marketing site SEO / social-share hygiene. |
+
+| 2026-10-20 | Consolidated the site into Agents, Cloud and Growth; three evenly spaced hero sectors and three desktop service cards. | Requested business-content cleanup. Retain existing fonts, dark palette and service hues; remove retired assets and mixed-audience customer totals. |

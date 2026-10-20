@@ -18,7 +18,6 @@ const partners: readonly Partner[] = [
   { name: "Microsoft", file: "microsoft.svg", w: 338, h: 72 },
   { name: "Google", file: "google.svg", w: 272, h: 92 },
   { name: "AWS", file: "aws.svg", w: 301, h: 180 },
-  { name: "Circle", file: "circle.avif", w: 391, h: 100 },
   { name: "Tencent Cloud", file: "tencent-cloud.svg", w: 719, h: 564, boost: true },
   { name: "Creao", file: "creao.png", w: 463, h: 169 },
   { name: "Station F", file: "stationf.png", w: 420, h: 76 },
@@ -27,19 +26,8 @@ const partners: readonly Partner[] = [
   { name: "PSL", file: "PSL.png", w: 502, h: 151 },
   { name: "Arts et Métiers", file: "arts-et-metiers.png", w: 472, h: 117 },
   { name: "NYU", file: "nyu.png", w: 326, h: 112 },
-  { name: "Ledger", file: "ledger.png", w: 336, h: 111 },
-  { name: "Quantstamp", file: "quantstamp.png", w: 590, h: 110 },
   { name: "Alstom", file: "alstom.png", w: 328, h: 68 },
   { name: "Shift", file: "shift.png", w: 286, h: 73 },
-  { name: "Solana", file: "solana.svg", w: 646, h: 96 },
-  { name: "iExec", file: "iexec.svg", w: 111, h: 41 },
-  { name: "Meria", file: "meria.svg", w: 189, h: 40 },
-  { name: "Morningstar Ventures", file: "morningstar-ventures.svg", w: 173, h: 55 },
-  { name: "Cypher Capital", file: "cypher-capital.svg", w: 331, h: 51 },
-  { name: "Binance", file: "binance.svg", w: 632, h: 127 },
-  { name: "Stellar", file: "stellar.svg", w: 631, h: 161 },
-  { name: "Standx", file: "standx.png", w: 388, h: 506 },
-  { name: "Debot", file: "debot.png", w: 992, h: 992 },
   { name: "GPTDAO", file: "gptdao.png", w: 512, h: 512, boost: true },
 ];
 
@@ -61,7 +49,7 @@ export default function LogoWall() {
         Trusted by
       </p>
       <h2 className="mt-3 max-w-3xl font-display text-xl font-semibold leading-tight tracking-tight text-fg-2 sm:text-2xl">
-        World-class partners across AI, infra, and on-chain rails.
+        World-class partners across AI, infrastructure, and enterprise.
       </h2>
 
       <Reveal
@@ -111,7 +99,7 @@ export default function LogoWall() {
           <>Show less <span aria-hidden>↑</span></>
         ) : (
           <>
-            Show {partners.length - PRIMARY_COUNT}+ more partners{" "}
+            Show {partners.length - PRIMARY_COUNT} more partners{" "}
             <span aria-hidden>→</span>
           </>
         )}
