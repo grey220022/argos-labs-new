@@ -11,9 +11,9 @@ import RotatingPhrase from "@/components/RotatingPhrase";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Argos Cloud — Multi-Cloud Solutions for AI, Web3 and Fintech",
+  title: "Argos Cloud — Multi-Cloud Solutions for AI and Fintech",
   description:
-    "We architect, deploy, and operate GPU compute, LLM gateways, and blockchain RPC across every major cloud — with senior solutions architects on every account.",
+    "We architect, deploy, and operate GPU compute and LLM gateways across every major cloud — with senior solutions architects on every account.",
 };
 
 type Provider = {
@@ -46,8 +46,8 @@ const reasons = [
     body: "Architects benchmark every workload — right-sizing GPU pools, spot orchestration, reserved capacity. The 30-35% savings are an engineering output, not a discount we negotiated.",
   },
   {
-    title: "AI & Web3 Specialty",
-    body: "We know the GPU spot market, the LLM token economy, and Solana / EVM RPC fleets — because we run them ourselves. Generic cloud teams read the white papers. We wrote the runbooks.",
+    title: "AI Infrastructure Expertise",
+    body: "We operate GPU compute and LLM gateways across clouds, with smart routing, semantic caching, and request batching to optimize model workloads.",
   },
   {
     title: "One Team, Every Cloud",
@@ -108,7 +108,6 @@ const promises = [
 ] as const;
 
 const proof = [
-  { value: "100+", label: "AI · Web3 · fintech teams" },
   { value: "99.99%", label: "platform uptime" },
   { value: "12", label: "clouds connected" },
 ] as const;
@@ -147,11 +146,13 @@ export default function CloudPage() {
                 cloud engineering team
               </span>
             </span>
-            <span className="block">for AI, Web3, and</span>
-            <span className="block text-[var(--accent)]">
-              <RotatingPhrase
-                phrases={["Fintech", "Agents", "Models", "GPUs"]}
-              />
+            <span className="block">
+              for{" "}
+              <span className="text-[var(--accent)]">
+                <RotatingPhrase
+                  phrases={["AI", "Agents", "Models", "Fintech"]}
+                />
+              </span>
               .
             </span>
           </h1>
@@ -162,9 +163,8 @@ export default function CloudPage() {
           </p>
 
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-fg-3 sm:text-lg">
-            <strong className="font-semibold text-fg">GPU compute</strong>,{" "}
-            <strong className="font-semibold text-fg">LLM gateways</strong>,{" "}
-            <strong className="font-semibold text-fg">blockchain RPC</strong>{" "}
+            <strong className="font-semibold text-fg">GPU compute</strong> and{" "}
+            <strong className="font-semibold text-fg">LLM gateways</strong>{" "}
             — engineered across every major cloud.
           </p>
 
@@ -473,12 +473,12 @@ export default function CloudPage() {
           <SectionEyebrow id="cloud-proof">Trusted by builders</SectionEyebrow>
 
           <h2 className="mt-4 max-w-3xl font-display text-2xl font-semibold leading-[1.15] tracking-tight text-fg sm:text-4xl">
-            100+ AI labs, Web3 teams, and fintechs ship on Argos Cloud.
+            Cloud infrastructure for AI labs and fintech teams.
           </h2>
 
           <Reveal
             gap={60}
-            className="mt-10 grid grid-cols-3 gap-3 sm:gap-6"
+            className="mt-10 grid grid-cols-2 gap-3 sm:gap-6"
           >
             {proof.map((m) => (
               <div

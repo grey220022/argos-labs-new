@@ -16,6 +16,24 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Verification
+
+```bash
+bun install
+bun run lint
+bun x tsc --noEmit
+bun run build
+bun x playwright install chromium
+bun run test:e2e
+```
+
+The E2E suite starts the production server on port 3107 and tests desktop and
+mobile layouts, navigation, partner expansion, metadata, retired asset URLs,
+and normal/reduced motion. Screenshots and traces are written to `test-results/`.
+See `docs/content-cleanup.md` for the content scope and verification record.
+With Google Chrome already installed, `PLAYWRIGHT_CHANNEL=chrome bun run test:e2e`
+can be used instead of downloading Chromium.
+
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.

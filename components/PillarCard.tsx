@@ -1,7 +1,7 @@
 import Link from "next/link";
 import HoverTrace from "./HoverTrace";
 
-export type PillarKey = "agents" | "cloud" | "growth" | "chain";
+export type PillarKey = "agents" | "cloud" | "growth";
 
 type Props = {
   pillar: PillarKey;

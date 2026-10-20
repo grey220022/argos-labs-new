@@ -80,3 +80,8 @@ export function glowPulse(target: string) {
   });
 }
 
+
+export function revealItems(items: HTMLElement[], gap = 60) {
+  if (reduced()) return;
+  return animate(items, { opacity: [0.7, 1], translateY: [16, 0], duration: 250, ease: "outQuad", delay: stagger(gap) });
+}

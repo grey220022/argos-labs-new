@@ -1,0 +1,72 @@
+[
+ {
+  "file": "public/images/station-f/hec-paris-incubator.jpg",
+  "media": "image",
+  "ref": "commons:128372401",
+  "title": "HEC Paris Incubator",
+  "creator": "BobVillars",
+  "creatorUrl": null,
+  "date": "2023-02-03",
+  "license": "CC BY-SA 4.0",
+  "licenseCode": "by-sa",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "creditRequired": true,
+  "page": "https://commons.wikimedia.org/wiki/File:HEC_Paris_Incubator.jpg",
+  "via": "Wikimedia Commons",
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/HEC_Paris_Incubator.jpg/1280px-HEC_Paris_Incubator.jpg",
+  "width": 1280,
+  "height": 960,
+  "bytes": 272239,
+  "credit": "\"HEC Paris Incubator\" by BobVillars, CC BY-SA 4.0, via Wikimedia Commons",
+  "notes": [
+   "Share-alike: an altered version (recoloured, combined with other pictures) must be shared under the same licence."
+  ],
+  "saved": "2026-10-20T16:31:24.204Z"
+ },
+ {
+  "file": "public/images/station-f/hec-paris-startup-launchpad-demo-day-2024.jpg",
+  "media": "image",
+  "ref": "commons:147114318",
+  "title": "HEC Paris Startup Launchpad Demo Day 2024 at Station F",
+  "creator": "Pasparfait",
+  "creatorUrl": null,
+  "date": "2024-04-05",
+  "license": "CC0",
+  "licenseCode": "cc0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "creditRequired": false,
+  "page": "https://commons.wikimedia.org/wiki/File:HEC_Paris_Startup_Launchpad_Demo_Day_2024_at_Station_F.jpg",
+  "via": "Wikimedia Commons",
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/HEC_Paris_Startup_Launchpad_Demo_Day_2024_at_Station_F.jpg/1280px-HEC_Paris_Startup_Launchpad_Demo_Day_2024_at_Station_F.jpg",
+  "width": 1280,
+  "height": 1707,
+  "bytes": 646495,
+  "credit": "\"HEC Paris Startup Launchpad Demo Day 2024 at Station F\" by Pasparfait, CC0, via Wikimedia Commons",
+  "notes": [],
+  "saved": "2026-10-20T16:31:28.123Z"
+ },
+ {
+  "file": "public/images/station-f/interieur-de-la-station-f-juin-2022.jpg",
+  "media": "image",
+  "ref": "commons:119973413",
+  "title": "Intérieur de la Station F juin 2022 3",
+  "creator": "Artvill",
+  "creatorUrl": null,
+  "date": "2022-06-21",
+  "license": "CC BY-SA 4.0",
+  "licenseCode": "by-sa",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "creditRequired": true,
+  "page": "https://commons.wikimedia.org/wiki/File:Int%C3%A9rieur_de_la_Station_F_juin_2022_3.jpg",
+  "via": "Wikimedia Commons",
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/Int%C3%A9rieur_de_la_Station_F_juin_2022_3.jpg/1280px-Int%C3%A9rieur_de_la_Station_F_juin_2022_3.jpg",
+  "width": 1280,
+  "height": 960,
+  "bytes": 366040,
+  "credit": "\"Intérieur de la Station F juin 2022 3\" by Artvill, CC BY-SA 4.0, via Wikimedia Commons",
+  "notes": [
+   "Share-alike: an altered version (recoloured, combined with other pictures) must be shared under the same licence."
+  ],
+  "saved": "2026-10-20T16:31:32.263Z"
+ }
+]

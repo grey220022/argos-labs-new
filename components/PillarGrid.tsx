@@ -24,7 +24,7 @@ const pillars: readonly Pillar[] = [
   {
     pillar: "cloud",
     name: "Cloud",
-    tagline: "Multi-cloud compute for AI, Web3, and fintech.",
+    tagline: "Multi-cloud compute for AI workloads.",
     bullets: [
       "GPU + CPU autoscale, multi-region",
       "Pay-per-execution pricing, no idle cost",
@@ -43,17 +43,6 @@ const pillars: readonly Pillar[] = [
     ],
     href: "#growth",
   },
-  {
-    pillar: "chain",
-    name: "Onchain",
-    tagline: "On-chain rails for mainstream consumer reach.",
-    bullets: [
-      "Soll Protocol — smart wallet SDK on Solana",
-      "Sollpay — phone- and email-only consumer wallet",
-      "Zero-knowledge proof security, no seed phrases",
-    ],
-    href: "#chain",
-  },
 ];
 
 export default function PillarGrid() {
@@ -63,12 +52,12 @@ export default function PillarGrid() {
         id="pillars-heading"
         className="max-w-2xl font-display text-3xl font-semibold leading-[1.05] tracking-tight text-fg sm:text-5xl"
       >
-        Four services. Built to ship. Engineered to scale.
+        Three services. Built to ship. Engineered to scale.
       </h2>
 
       <Reveal
         gap={80}
-        className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6"
+        className="mt-12 grid grid-cols-1 gap-4 sm:gap-6 lg:grid-cols-3"
       >
         {pillars.map((p) => (
           <PillarCard key={p.pillar} {...p} />

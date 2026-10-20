@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, type HTMLAttributes } from "react";
-import { animate, stagger } from "animejs";
+import { revealItems } from "@/lib/motion";
 
 const reduced = () =>
   typeof window !== "undefined" &&
@@ -31,13 +31,7 @@ export default function Reveal({
     const obs = new IntersectionObserver(
       ([entry]) => {
         if (!entry.isIntersecting) return;
-        animate(items, {
-          opacity: [0, 1],
-          translateY: [32, 0],
-          duration: 500,
-          ease: "outQuad",
-          delay: stagger(gap),
-        });
+        revealItems(items, gap);
         obs.disconnect();
       },
       { threshold, rootMargin: "0px 0px -10% 0px" }

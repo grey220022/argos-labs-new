@@ -12,6 +12,8 @@
 
 # testing
 /coverage
+/playwright-report/
+/test-results/
 
 # next.js
 /.next/
@@ -55,3 +57,7 @@ next-env.d.ts
 
 # Local Claude Code permissions / per-machine config
 .claude/
+
+# Locally installed skills and generated design audits
+/.agents/
+/.taste-skill/

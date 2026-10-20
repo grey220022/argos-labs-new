@@ -2,9 +2,6 @@ import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-import BackgroundGrid from "@/components/BackgroundGrid";
-import LiveTicker from "@/components/LiveTicker";
-import ScrollProgress from "@/components/ScrollProgress";
 import CTAFeedback from "@/components/CTAFeedback";
 
 const dinish = localFont({
@@ -24,7 +21,7 @@ const jetbrainsMono = JetBrains_Mono({
 const SITE_URL = "https://argos-labs-wine.vercel.app";
 const SITE_NAME = "Argos Labs";
 const SITE_DESCRIPTION =
-  "Agents · Cloud · Growth · Onchain. The platform behind execution.";
+  "Agents · Cloud · Growth. The platform behind execution.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -71,10 +68,7 @@ export default function RootLayout({
       className={`${dinish.variable} ${jetbrainsMono.variable} antialiased`}
     >
       <body className="relative min-h-screen [@supports(min-height:100dvh)]:min-h-dvh">
-        <ScrollProgress />
-        <BackgroundGrid />
         {children}
-        <LiveTicker />
         <CTAFeedback />
       </body>
     </html>

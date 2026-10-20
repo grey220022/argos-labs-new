@@ -8,7 +8,7 @@ const reduced = () =>
   window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 // Mobile / low-end browsers (incl. WeChat X5) get a lighter timeline:
-// arc draw + slow rotation + center pulse — but no 88-particle drift.
+// arc draw + slow rotation + center pulse — but no 66-particle drift.
 const isLowMotionViewport = () =>
   typeof window !== "undefined" &&
   window.matchMedia("(max-width: 699px)").matches;
@@ -38,7 +38,7 @@ const arcPath = (start: number, end: number, r: number) => {
 };
 
 type Pillar = {
-  id: "agents" | "cloud" | "growth" | "chain";
+  id: "agents" | "cloud" | "growth";
   hue: string;
   label: string;
   start: number;
@@ -47,10 +47,9 @@ type Pillar = {
 };
 
 const PILLARS: readonly Pillar[] = [
-  { id: "agents", hue: "var(--color-hue-agents)", label: "AGENTS", start: -40, end: 40, labelAngle: 0 },
-  { id: "cloud", hue: "var(--color-hue-cloud)", label: "CLOUD", start: 50, end: 130, labelAngle: 90 },
-  { id: "growth", hue: "var(--color-hue-growth)", label: "GROWTH", start: 140, end: 220, labelAngle: 180 },
-  { id: "chain", hue: "var(--color-hue-chain)", label: "CHAIN", start: 230, end: 310, labelAngle: 270 },
+  { id: "agents", hue: "var(--color-hue-agents)", label: "AGENTS", start: -50, end: 50, labelAngle: 0 },
+  { id: "cloud", hue: "var(--color-hue-cloud)", label: "CLOUD", start: 70, end: 170, labelAngle: 120 },
+  { id: "growth", hue: "var(--color-hue-growth)", label: "GROWTH", start: 190, end: 290, labelAngle: 240 },
 ];
 
 // Deterministic PRNG so SSR and client agree on particle positions.
@@ -62,7 +61,7 @@ const seeded = (seed: number) => {
   };
 };
 
-const PARTICLES_PER_Q = 22;
+const PARTICLES_PER_SECTOR = 22;
 
 type Particle = { startX: number; startY: number; delay: number };
 
@@ -71,7 +70,7 @@ const PARTICLES: Record<Pillar["id"], Particle[]> = (() => {
   PILLARS.forEach((p, idx) => {
     const rng = seeded(idx * 7919 + 31);
     const arr: Particle[] = [];
-    for (let i = 0; i < PARTICLES_PER_Q; i++) {
+    for (let i = 0; i < PARTICLES_PER_SECTOR; i++) {
       const angle = p.start + rng() * (p.end - p.start);
       const radius = 55 + rng() * 105;
       const pos = polar(angle, radius);
@@ -86,7 +85,7 @@ const PARTICLES: Record<Pillar["id"], Particle[]> = (() => {
   return out as Record<Pillar["id"], Particle[]>;
 })();
 
-const TICKS_PER_Q = 16;
+const TICKS_PER_SECTOR = 16;
 
 type Tick = { x1: number; y1: number; x2: number; y2: number };
 
@@ -94,8 +93,8 @@ const TICKS: Record<Pillar["id"], Tick[]> = (() => {
   const out: Record<string, Tick[]> = {};
   PILLARS.forEach((p) => {
     const arr: Tick[] = [];
-    for (let i = 0; i <= TICKS_PER_Q; i++) {
-      const angle = p.start + ((p.end - p.start) * i) / TICKS_PER_Q;
+    for (let i = 0; i <= TICKS_PER_SECTOR; i++) {
+      const angle = p.start + ((p.end - p.start) * i) / TICKS_PER_SECTOR;
       const o = polar(angle, R_OUTER);
       const inn = polar(angle, R_TICK_INNER);
       arr.push({
@@ -127,7 +126,7 @@ export default function HeroVisual() {
       if (started) return;
       started = true;
 
-      // 1. Arc draw-on (stagger 4 quadrants)
+      // 1. Arc draw-on (stagger 3 sectors)
       anims.push(
         animate(svg.querySelectorAll("[data-arc]"), {
           strokeDashoffset: [1, 0],
@@ -219,7 +218,7 @@ export default function HeroVisual() {
       ref={svgRef}
       viewBox={`0 0 ${SIZE} ${SIZE}`}
       role="img"
-      aria-label="Argos Labs four-pillar visualization"
+      aria-label="Argos Labs three-pillar visualization"
       className="block h-auto w-full max-w-[520px]"
     >
       <defs>
@@ -258,7 +257,7 @@ export default function HeroVisual() {
               strokeLinecap="round"
               pathLength={1}
               strokeDasharray={1}
-              strokeDashoffset={1}
+              strokeDashoffset={0}
             />
             {TICKS[p.id].map((t, i) => (
               <line
