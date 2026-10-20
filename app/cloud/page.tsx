@@ -3,17 +3,31 @@ import Image from "next/image";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import SectionEyebrow from "@/components/SectionEyebrow";
-import Counter from "@/components/Counter";
 import HoverTrace from "@/components/HoverTrace";
 import CharStagger from "@/components/CharStagger";
 import SectionSweep from "@/components/SectionSweep";
 import RotatingPhrase from "@/components/RotatingPhrase";
 import Footer from "@/components/Footer";
 
+const title = "Argos Cloud — Cloud Engineering for AI and Fintech";
+const description =
+  "Plan, deploy and operate GPU infrastructure and model gateways across clouds, with support for architecture, migration and cost management.";
+
 export const metadata: Metadata = {
-  title: "Argos Cloud — Multi-Cloud Solutions for AI and Fintech",
-  description:
-    "We architect, deploy, and operate GPU compute and LLM gateways across every major cloud — with senior solutions architects on every account.",
+  title,
+  description,
+  openGraph: {
+    type: "website",
+    url: "/cloud",
+    siteName: "Argos Labs",
+    title,
+    description,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+  },
 };
 
 type Provider = {
@@ -33,83 +47,83 @@ const providers: readonly Provider[] = [
 ];
 
 const models = [
-  "GPT-5",
-  "Claude Opus 4.7",
-  "Gemini 3.0 Pro",
-  "Llama 4",
-  "DeepSeek-V4",
+  "GPT",
+  "Claude",
+  "Gemini",
+  "Llama",
+  "DeepSeek",
 ] as const;
 
 const reasons = [
   {
-    title: "Engineered Cost Discipline",
-    body: "Architects benchmark every workload — right-sizing GPU pools, spot orchestration, reserved capacity. The 30-35% savings are an engineering output, not a discount we negotiated.",
+    title: "Cost-aware architecture",
+    body: "Size GPU capacity and assess spot or reserved options around your workload, usage and reliability needs.",
   },
   {
-    title: "AI Infrastructure Expertise",
-    body: "We operate GPU compute and LLM gateways across clouds, with smart routing, semantic caching, and request batching to optimize model workloads.",
+    title: "AI operations",
+    body: "Run GPU workloads and model gateways with support for inference, routing, caching and cost management.",
   },
   {
-    title: "One Team, Every Cloud",
-    body: "Stop coordinating across vendors. We hold the architecture, the contracts, and the on-call rotation — across AWS, GCP, Azure, Alibaba, Tencent, and OVH — under one engineering MSA.",
+    title: "Cloud coordination",
+    body: "Work with one team to coordinate architecture, deployment and operations across your cloud providers.",
   },
 ] as const;
 
 const compare = [
   {
-    label: "Pricing",
-    direct: "Retail rack rate",
-    argos: "Up to 35% lower, engineered",
+    label: "Cost management",
+    direct: "Your team reviews usage and rates",
+    argos: "Engineers review capacity and spend",
   },
   {
     label: "Architecture",
-    direct: "Your DevOps team owns it",
-    argos: "Senior architect designs and reviews",
+    direct: "Your team designs and maintains it",
+    argos: "Architecture design and review support",
   },
   {
-    label: "Contract",
-    direct: "One MSA per provider",
-    argos: "One engineering MSA, every cloud",
+    label: "Coordination",
+    direct: "Your team coordinates providers",
+    argos: "One team coordinates cloud engineering",
   },
   {
     label: "Billing",
-    direct: "Multiple invoices, multiple currencies",
-    argos: "Unified invoice, local currency",
+    direct: "Managed through each provider",
+    argos: "Consolidated billing options",
   },
   {
     label: "Support",
-    direct: "Tier-2 ticket queue",
-    argos: "Senior architect on call",
+    direct: "Covered by your provider plans",
+    argos: "Engineering support scoped to your needs",
   },
   {
     label: "Migration",
-    direct: "Sales hands you off",
-    argos: "Architect stays through cut-over",
+    direct: "Your team plans and runs the move",
+    argos: "Architecture and cutover support",
   },
 ] as const;
 
 const promises = [
   {
-    title: "Flexible Billing",
-    body: "Prepaid, postpaid, or hybrid. Settle on the cycle your finance team actually prefers — no quota games, no minimum commits.",
+    title: "Billing that fits",
+    body: "Discuss prepaid, postpaid or hybrid billing. Agree on payment cycles and capacity commitments before deployment.",
   },
   {
-    title: "Every Payment Rail",
-    body: "Credit card, wire, SEPA, SWIFT. Multi-currency settlement in USD or EUR — one bill across every cloud.",
+    title: "Payment options",
+    body: "Credit card, wire, SEPA, SWIFT. We can review USD or EUR settlement and consolidated invoicing with your finance team.",
   },
   {
-    title: "24/7 Global Support",
-    body: "Engineers across Paris, Hong Kong, and Singapore — every timezone covered. Slack, ticket, or hotline, whichever your team works in.",
+    title: "Engineering support",
+    body: "Set support hours, escalation paths and communication channels around your operations, with access to engineers who understand your setup.",
   },
   {
-    title: "Dedicated Solutions Architect",
-    body: "Every account gets a senior architect on call. We design the hybrid topology, optimize the spend, and stay through migration — not just the sales call.",
+    title: "Migration support",
+    body: "Plan your target architecture, migration steps and cutover with an architect. Review capacity and costs as your workloads evolve.",
   },
 ] as const;
 
-const proof = [
-  { value: "99.99%", label: "platform uptime" },
-  { value: "12", label: "clouds connected" },
+const workloads = [
+  { value: "Compute", label: "GPU infrastructure" },
+  { value: "Models", label: "LLM gateways" },
 ] as const;
 
 export default function CloudPage() {
@@ -150,7 +164,7 @@ export default function CloudPage() {
               for{" "}
               <span className="text-[var(--accent)]">
                 <RotatingPhrase
-                  phrases={["AI", "Agents", "Models", "Fintech"]}
+                  phrases={["AI", "agents", "models", "fintech"]}
                 />
               </span>
               .
@@ -159,29 +173,29 @@ export default function CloudPage() {
           <CharStagger selector="[data-cloud-h1]" />
 
           <p className="mt-8 max-w-2xl text-base leading-relaxed text-fg-3 sm:text-lg">
-            We help enterprises build with AI.
+            Plan, deploy and operate the infrastructure behind your AI workloads.
           </p>
 
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-fg-3 sm:text-lg">
             <strong className="font-semibold text-fg">GPU compute</strong> and{" "}
             <strong className="font-semibold text-fg">LLM gateways</strong>{" "}
-            — engineered across every major cloud.
+            across the clouds that fit your stack.
           </p>
 
           <div className="mt-10 flex flex-wrap gap-3">
             <a
               data-cta
-              href="mailto:contact@argoslabs.io?subject=Argos%20Cloud%20trial"
+              href="mailto:contact@argoslabs.io?subject=Argos%20Cloud%20project"
               className="inline-flex h-12 items-center rounded-md bg-[var(--accent)] px-5 font-display font-medium text-bg shadow-[0_0_28px_-6px_var(--accent)] transition-transform duration-100 hover:scale-[1.02]"
             >
-              Start Free Trial
+              Talk to an architect
             </a>
             <a
               data-cta
-              href="mailto:contact@argoslabs.io?subject=Talk%20to%20an%20architect"
+              href="#cloud-models"
               className="cta-rotating-border inline-flex h-12 items-center rounded-md px-5 font-display font-medium text-fg transition-colors duration-100 hover:text-[var(--accent)]"
             >
-              Talk to an Architect
+              Explore the model gateway
             </a>
           </div>
         </section>
@@ -192,7 +206,7 @@ export default function CloudPage() {
           className="relative mt-32 sm:mt-40"
         >
           <SectionSweep />
-          <SectionEyebrow id="cloud-providers">Every Cloud, Argos Cloud</SectionEyebrow>
+          <SectionEyebrow id="cloud-providers">Cloud providers we work with</SectionEyebrow>
 
           {/* Marquee logo wall — track is rendered twice for seamless loop.
               Pauses on hover (desktop). On mobile, scrolls at the same
@@ -225,26 +239,25 @@ export default function CloudPage() {
           </div>
         </section>
 
-        {/* 2.5 LLM gateway — every model, one endpoint */}
+        {/* 2.5 Model gateway */}
         <section
           aria-labelledby="cloud-models"
           className="relative mt-32 sm:mt-40"
         >
           <SectionSweep />
-          <SectionEyebrow>Model Gateway</SectionEyebrow>
+          <SectionEyebrow>Model gateway</SectionEyebrow>
 
           <h2
             id="cloud-models"
             className="mt-4 max-w-3xl font-display text-3xl font-semibold leading-[1.05] tracking-tight text-fg sm:text-5xl"
           >
-            Every model, one endpoint.
+            Connect models. Control usage.
           </h2>
 
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-fg-3 sm:text-lg">
-            Frontier models from OpenAI, Anthropic, Google, Meta, and DeepSeek —
-            through one endpoint. We optimize token consumption with smart
-            routing, semantic caching, and request batching, and ship
-            custom-tuned variants when off-the-shelf isn&apos;t a fit.
+            Connect models from OpenAI, Anthropic, Google, Meta and DeepSeek
+            through a shared gateway. Manage routing, token usage and access
+            in one place, with custom model options for specialized workloads.
           </p>
 
           <Reveal
@@ -267,38 +280,38 @@ export default function CloudPage() {
           >
             <div>
               <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--accent)]">
-                Wide Coverage
+                Model choice
               </p>
               <p className="mt-3 text-sm leading-relaxed text-fg-3 sm:text-base">
-                Frontier models from every major lab — plus 30+ open-weight,
-                regional, and specialty models — accessed through one endpoint
-                with one set of credentials.
+                Choose hosted or open-weight models to suit your workload.
+                Confirm the models, deployment regions and capacity you need
+                with our team.
               </p>
             </div>
             <div>
               <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--accent)]">
-                Consumption Optimization
+                Token usage
               </p>
               <p className="mt-3 text-sm leading-relaxed text-fg-3 sm:text-base">
-                Smart routing, semantic cache, and request batching cut token
-                spend 20-40% before requests reach a provider. Volume rates
-                pooled across all your projects.
+                Use routing, semantic caching and request batching to manage
+                token consumption. Review model usage and billing across your
+                projects.
               </p>
             </div>
             <div>
               <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--accent)]">
-                Custom Variants
+                Custom models
               </p>
               <p className="mt-3 text-sm leading-relaxed text-fg-3 sm:text-base">
-                Fine-tune, distill, or co-build domain-specific models when
-                off-the-shelf isn&apos;t a fit. Hosted on your dedicated capacity,
-                billed through the same gateway.
+                Explore fine-tuning, distillation or domain-specific models
+                when standard models fall short. Plan dedicated hosting and
+                gateway billing around your requirements.
               </p>
               <a
-                href="mailto:contact@argoslabs.io?subject=Custom%20model%20variant"
+                href="mailto:contact@argoslabs.io?subject=Argos%20Cloud%20custom%20model"
                 className="mono-link group/dcv mt-4 inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--accent)]"
               >
-                Discuss a custom variant
+                Discuss a custom model
                 <span
                   aria-hidden
                   className="transition-transform duration-150 group-hover/dcv:translate-x-1"
@@ -316,19 +329,18 @@ export default function CloudPage() {
           className="relative mt-32 sm:mt-40"
         >
           <SectionSweep />
-          <SectionEyebrow>Why Argos Cloud</SectionEyebrow>
+          <SectionEyebrow>Cloud engineering</SectionEyebrow>
 
           <h2
             id="cloud-why"
             className="mt-4 max-w-3xl font-display text-3xl font-semibold leading-[1.05] tracking-tight text-fg sm:text-5xl lg:text-[60px]"
           >
-            Engineering, not procurement.
+            Built for your workload.
           </h2>
 
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-fg-3 sm:text-lg">
-            You can stand up multi-cloud yourself. Or you can have a senior
-            engineering team architect, deploy, and operate it — and pass the
-            cost discipline through to your bill.
+            Work with one team from architecture to operations. We align cloud
+            choices, capacity and costs with the way your applications run.
           </p>
 
           <Reveal
@@ -361,7 +373,7 @@ export default function CloudPage() {
             gap={40}
             className="mt-16 overflow-hidden rounded-xl border border-fg-7"
             role="table"
-            aria-label="Going direct vs. with Argos Cloud"
+            aria-label="Managing cloud providers directly or with Argos Cloud"
           >
             {/* Header — only visible on >=sm where the grid layout makes sense */}
             <div
@@ -369,10 +381,10 @@ export default function CloudPage() {
               className="hidden border-b border-fg-7 bg-bg-2 px-5 py-4 sm:grid sm:grid-cols-[1fr_1fr_1.4fr] sm:items-center sm:gap-x-8 sm:px-8"
             >
               <p role="columnheader" className="font-mono text-[10px] uppercase tracking-[0.22em] text-fg-4 sm:text-xs">
-                Dimension
+                Responsibility
               </p>
               <p role="columnheader" className="font-mono text-[10px] uppercase tracking-[0.22em] text-fg-4 sm:text-xs">
-                Going direct
+                Managed by your team
               </p>
               <p role="columnheader" className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--accent)] sm:text-xs">
                 With Argos Cloud
@@ -396,7 +408,7 @@ export default function CloudPage() {
                     aria-hidden
                     className="font-mono text-[10px] uppercase tracking-[0.18em] text-fg-5 sm:hidden"
                   >
-                    Direct
+                    Your team
                   </span>
                   <p role="cell" className="text-sm text-fg-4 sm:text-base">
                     {row.direct}
@@ -419,7 +431,7 @@ export default function CloudPage() {
           </Reveal>
         </section>
 
-        {/* 3.5 Service promises — payment, support, architects */}
+        {/* 3.5 Billing, support and migration */}
         <section
           aria-labelledby="cloud-promises"
           className="relative mt-32 sm:mt-40"
@@ -431,13 +443,12 @@ export default function CloudPage() {
             id="cloud-promises"
             className="mt-4 max-w-3xl font-display text-3xl font-semibold leading-[1.05] tracking-tight text-fg sm:text-5xl"
           >
-            Beyond infrastructure — built around your team.
+            Support beyond deployment.
           </h2>
 
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-fg-3 sm:text-lg">
-            Pay how you want, in any currency. Reach a real engineer in any
-            timezone. Get a senior architect through every migration. The
-            platform is the product — but service is what you remember.
+            Agree on billing, support and migration plans that work for your
+            engineering and finance teams.
           </p>
 
           <Reveal
@@ -464,29 +475,29 @@ export default function CloudPage() {
           </Reveal>
         </section>
 
-        {/* 4. Customer proof */}
+        {/* 4. Workload scope */}
         <section
           aria-labelledby="cloud-proof"
           className="relative mt-32 sm:mt-40"
         >
           <SectionSweep />
-          <SectionEyebrow id="cloud-proof">Trusted by builders</SectionEyebrow>
+          <SectionEyebrow id="cloud-proof">Workloads we support</SectionEyebrow>
 
           <h2 className="mt-4 max-w-3xl font-display text-2xl font-semibold leading-[1.15] tracking-tight text-fg sm:text-4xl">
-            Cloud infrastructure for AI labs and fintech teams.
+            Built for AI and fintech.
           </h2>
 
           <Reveal
             gap={60}
             className="mt-10 grid grid-cols-2 gap-3 sm:gap-6"
           >
-            {proof.map((m) => (
+            {workloads.map((m) => (
               <div
                 key={m.label}
                 className="rounded-xl border border-fg-7 bg-bg-2 p-5 sm:p-6"
               >
                 <p className="font-display text-2xl font-semibold tracking-tight text-[var(--accent)] sm:text-5xl">
-                  <Counter value={m.value} />
+                  {m.value}
                 </p>
                 <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.18em] text-fg-4 sm:text-xs">
                   {m.label}
@@ -507,9 +518,8 @@ export default function CloudPage() {
         <div className="mx-auto max-w-[1500px] px-6 py-24 sm:px-12 sm:py-32 lg:px-24">
           <Reveal className="block">
             <h2 className="max-w-[22ch] font-display text-4xl font-semibold leading-[0.95] tracking-tight text-fg sm:text-5xl lg:text-[64px]">
-              We don&apos;t manufacture clouds — we{" "}
-              <span className="text-[var(--accent)]">engineer them</span>{" "}
-              around your stack.
+              Your cloud.{" "}
+              <span className="text-[var(--accent)]">Our engineers.</span>
             </h2>
           </Reveal>
         </div>

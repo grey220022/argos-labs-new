@@ -21,11 +21,11 @@ const jetbrainsMono = JetBrains_Mono({
 const SITE_URL = "https://argos-labs-wine.vercel.app";
 const SITE_NAME = "Argos Labs";
 const SITE_DESCRIPTION =
-  "Agents · Cloud · Growth. The platform behind execution.";
+  "Argos Labs builds AI agents, operates cloud infrastructure and supports international growth. Based at Station F in Paris.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "Argos Labs — All-in-One AI Execution Platform",
+  title: "Argos Labs | AI Agents, Cloud & Growth",
   description: SITE_DESCRIPTION,
   // Stop WeChat / iOS Safari from auto-linkifying numbers like "100+", "99.99%"
   formatDetection: {
@@ -38,13 +38,13 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: SITE_URL,
     siteName: SITE_NAME,
-    title: "Argos Labs — All-in-One AI Execution Platform",
+    title: "Argos Labs | AI Agents, Cloud & Growth",
     description: SITE_DESCRIPTION,
     // app/opengraph-image.tsx is auto-picked up by Next.js for the / route
   },
   twitter: {
     card: "summary_large_image",
-    title: "Argos Labs — All-in-One AI Execution Platform",
+    title: "Argos Labs | AI Agents, Cloud & Growth",
     description: SITE_DESCRIPTION,
   },
 };

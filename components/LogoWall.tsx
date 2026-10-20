@@ -47,7 +47,7 @@ export default function LogoWall() {
         ))}
       </Reveal>
       <button type="button" onClick={() => setExpanded((v) => !v)} className="partner-toggle" aria-expanded={expanded}>
-        {expanded ? "Show less ↑" : `Show ${partners.length - PRIMARY_COUNT} more partners →`}
+        {expanded ? "Show less ↑" : `Show ${partners.length - PRIMARY_COUNT} more →`}
       </button>
     </section>
   );

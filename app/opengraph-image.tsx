@@ -4,7 +4,7 @@ import { ImageResponse } from "next/og";
 // Picked up automatically by Next.js for the root route.
 
 export const runtime = "edge";
-export const alt = "Argos Labs — All-in-One AI Execution Platform";
+export const alt = "Argos Labs | AI Agents, Cloud & Growth";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -56,7 +56,7 @@ export default async function Image() {
             maxWidth: 980,
           }}
         >
-          All-in-One AI Execution Platform
+          AI, put to work.
         </div>
 
         <div
@@ -79,7 +79,7 @@ export default async function Image() {
             textTransform: "uppercase",
           }}
         >
-          We help enterprises build with AI.
+          AI delivery and international growth.
         </div>
       </div>
     ),

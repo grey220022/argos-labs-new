@@ -4,14 +4,14 @@ Updated 2026-10-20. This replaces the original extraction as the current content
 
 ## Positioning
 
-All-in-One AI Execution Platform. We help enterprises build with AI.
+AI, put to work. We build AI agents, run cloud infrastructure and help businesses enter new markets.
 
 Three service lines: **Agents · Cloud · Growth**.
 
 ## Routes and sections
 
 - `/`: hero board, Agents/Cloud/Growth narratives, service-to-email selector, partner wall, Station F photographs and footer.
-- `/cloud`: AI/fintech cloud engineering, providers, model gateway, engineering capabilities, service comparison, billing/support and infrastructure metrics.
+- `/cloud`: AI/fintech cloud engineering, providers, model gateway, engineering capabilities, service comparison, billing/support and workload capabilities.
 - Metadata routes: `/sitemap.xml`, `/robots.txt`, `/opengraph-image`.
 - No additional product pages or translated routes currently exist.
 
@@ -31,3 +31,9 @@ Three service lines: **Agents · Cloud · Growth**.
 - Current partner assets: `public/images/`, referenced by the partner/provider lists.
 - Hero video: local film with poster, pause control and reduced-motion fallback.
 - Fonts and visual rules: see `DESIGN.md` and the implementation in `app/layout.tsx`.
+
+## Editorial voice
+
+Plain, concrete English for enterprise teams. Describe services before outcomes. Sentence-case headings and descriptive actions; email links must not imply a trial signup or a submitted form. Preserve source-attributed campus image captions.
+
+Do not publish savings percentages, uptime guarantees, exact provider/model counts, universal support hours or minimum-commitment promises without approved evidence and conditions. Current public copy describes scoped capabilities and billing/support options instead. Model families are named without claiming particular versions are available. Search and social titles describe AI Agents, Cloud & Growth.

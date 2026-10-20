@@ -30,7 +30,7 @@ export default function HeroFilm() {
 
   return (
     <div className="hero-film">
-      <Image src="/images/hero-poster.jpg" alt="Architectural study of a planted concrete workspace" fill sizes="(max-width: 700px) 100vw, 50vw" priority />
+      <Image src="/images/hero-poster.jpg" alt="Architectural illustration of a planted concrete courtyard" fill sizes="(max-width: 700px) 100vw, 50vw" priority />
       <video
         ref={videoRef}
         muted
@@ -46,7 +46,7 @@ export default function HeroFilm() {
         <source src="/videos/hero-loop.mp4" type="video/mp4" />
       </video>
       <button type="button" className="film-control" aria-pressed={!playing} onClick={togglePlayback}>
-        {playing ? "Pause film" : "Play film"}
+        {playing ? "Pause video" : "Play video"}
       </button>
     </div>
   );

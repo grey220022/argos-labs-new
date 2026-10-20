@@ -14,7 +14,7 @@ test("homepage keeps working service links and all remaining partner assets", as
   const response = await page.goto("/", { waitUntil: "domcontentloaded" });
   expect(response?.status()).toBe(200);
 
-  const nav = page.getByRole("navigation", { name: "Pillars" });
+  const nav = page.getByRole("navigation", { name: "Services" });
   await expect(nav.getByRole("link")).toHaveText(["Agents", "Cloud", "Growth"]);
   await expect(page.locator("#pillars article")).toHaveCount(3);
 
@@ -33,7 +33,7 @@ test("homepage keeps working service links and all remaining partner assets", as
   await expect(images).toHaveCount(14);
   if (isMobile) {
     await expect(partners.locator("img:visible")).toHaveCount(7);
-    const toggle = partners.getByRole("button", { name: "Show 7 more partners" });
+    const toggle = partners.getByRole("button", { name: "Show 7 more" });
     await toggle.focus();
     await page.keyboard.press("Enter");
     await expect(partners.getByRole("button")).toHaveAttribute("aria-expanded", "true");
@@ -45,7 +45,7 @@ test("homepage keeps working service links and all remaining partner assets", as
     expect((await request.get(source!)).ok()).toBeTruthy();
   }
   expect(await page.locator("body").textContent()).not.toMatch(retiredContent);
-  await expect(page.getByText("Billed per token and per second.")).toBeVisible();
+  await expect(page.getByText("Track model tokens and compute time.")).toBeVisible();
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
   await page.screenshot({ path: testInfo.outputPath("home.png"), fullPage: true, scale: "css" });
   await page.locator("#pillars").screenshot({ path: testInfo.outputPath("services.png"), scale: "css" });
@@ -68,15 +68,17 @@ test("Cloud keeps model billing and bank payments without relabeling customer to
   page.on("pageerror", (error) => pageErrors.push(error.message));
   await page.emulateMedia({ reducedMotion: "reduce" });
   expect((await page.goto("/cloud", { waitUntil: "domcontentloaded" }))?.status()).toBe(200);
-  await expect(page).toHaveTitle("Argos Cloud — Multi-Cloud Solutions for AI and Fintech");
-  await expect(page.getByRole("heading", { name: "AI Infrastructure Expertise" })).toBeVisible();
+  await expect(page).toHaveTitle("Argos Cloud — Cloud Engineering for AI and Fintech");
+  await expect(page.getByRole("heading", { name: "AI operations" })).toBeVisible();
   expect(await page.locator("body").textContent()).not.toMatch(retiredContent);
   await expect(page.getByText(/Credit card, wire, SEPA, SWIFT/)).toBeVisible();
-  await expect(page.getByText(/Smart routing, semantic cache, and request batching cut token spend/)).toBeVisible();
+  await expect(page.getByText(/Use routing, semantic caching and request batching/)).toBeVisible();
   const proof = page.locator('section[aria-labelledby="cloud-proof"]');
   await expect(proof).not.toContainText("100+");
-  await expect(proof).toContainText("platform uptime");
-  await expect(proof).toContainText("clouds connected");
+  await expect(page.locator("body")).not.toContainText("99.99%");
+  await expect(page.getByRole("link", { name: "Talk to an architect", exact: true })).toHaveAttribute("href", /^mailto:/);
+  await expect(proof).toContainText("GPU infrastructure");
+  await expect(proof).toContainText("LLM gateways");
   const contactLinks = page.locator('a[href^="mailto:contact@argoslabs.io"]');
   expect(await contactLinks.count()).toBeGreaterThan(0);
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
@@ -122,14 +124,14 @@ test("service brief supports keyboard choices and honest email handoff", async (
   await agents.focus();
   await page.keyboard.press("ArrowRight");
   await expect(page.getByRole("radio", { name: "Cloud", exact: true })).toBeChecked();
-  const cloud = page.getByRole("link", { name: "Discuss Cloud" });
+  const cloud = page.getByRole("link", { name: "Email about Cloud" });
   const href = await cloud.getAttribute("href");
   expect(decodeURIComponent(href!)).toContain("Argos Labs — Cloud project");
-  expect(decodeURIComponent(href!)).toContain("Our workload, current cloud and target regions");
+  expect(decodeURIComponent(href!)).toContain("Workload and current providers:");
   await page.keyboard.press("ArrowRight");
   await expect(page.getByRole("radio", { name: "Growth", exact: true })).toBeChecked();
-  await expect(page.getByRole("link", { name: "Discuss Growth" })).toBeVisible();
-  await page.getByText("Photography & credits", { exact: true }).click();
-  await expect(page.getByText("Public campus photographs", { exact: false })).toBeVisible();
+  await expect(page.getByRole("link", { name: "Email about Growth" })).toBeVisible();
+  await page.getByText("Photo credits", { exact: true }).click();
+  await expect(page.getByText("Station F campus and event photos", { exact: false })).toBeVisible();
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
 });
