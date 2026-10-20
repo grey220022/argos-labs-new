@@ -80,3 +80,6 @@
 .film-control{position:absolute;right:16px;bottom:16px;background:#191919;color:#fafafa;padding:12px 16px;min-height:48px;font-size:16px;cursor:pointer}
 .partner-tile img.partner-boost{height:56px}
 @media(prefers-reduced-motion:reduce){.film-control{display:none}}
+/* Reveal decoded frames gently; pausing preserves the current frame. */
+.hero-film video{opacity:0;transition:opacity 250ms ease}
+.hero-film video.film-ready{opacity:1}
