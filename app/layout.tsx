@@ -2,9 +2,6 @@ import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-import BackgroundGrid from "@/components/BackgroundGrid";
-import LiveTicker from "@/components/LiveTicker";
-import ScrollProgress from "@/components/ScrollProgress";
 import CTAFeedback from "@/components/CTAFeedback";
 
 const dinish = localFont({
@@ -71,10 +68,7 @@ export default function RootLayout({
       className={`${dinish.variable} ${jetbrainsMono.variable} antialiased`}
     >
       <body className="relative min-h-screen [@supports(min-height:100dvh)]:min-h-dvh">
-        <ScrollProgress />
-        <BackgroundGrid />
         {children}
-        <LiveTicker />
         <CTAFeedback />
       </body>
     </html>

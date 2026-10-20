@@ -37,72 +37,17 @@ export default function LogoWall() {
   const [expanded, setExpanded] = useState(false);
 
   return (
-    <section className="mt-24 sm:mt-32" aria-labelledby="trusted-by">
-      <p
-        id="trusted-by"
-        className="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.22em] text-fg-4"
-      >
-        <span
-          aria-hidden
-          className="size-1.5 rounded-full bg-brand shadow-[0_0_10px_rgba(124,133,255,0.65)]"
-        />
-        Trusted by
-      </p>
-      <h2 className="mt-3 max-w-3xl font-display text-xl font-semibold leading-tight tracking-tight text-fg-2 sm:text-2xl">
-        World-class partners across AI, infrastructure, and enterprise.
-      </h2>
-
-      <Reveal
-        gap={40}
-        className="group/wall mt-8 flex flex-wrap items-center gap-x-10 gap-y-7 sm:gap-x-12 sm:gap-y-8"
-      >
-        {partners.map((p, i) => {
-          const isOverflow = i >= PRIMARY_COUNT;
-          // sm+ always shows; on <sm hide overflow when not expanded
-          const visibilityClass = isOverflow
-            ? expanded
-              ? ""
-              : "hidden sm:flex"
-            : "";
-          return (
-            <div
-              key={p.name}
-              className={`group/logo relative ${visibilityClass}`}
-            >
-              <span
-                aria-hidden
-                className="pointer-events-none absolute -inset-3 rounded-md bg-brand/0 blur-2xl transition-colors duration-[350ms] ease-[cubic-bezier(0,0,0.2,1)] group-hover/logo:bg-brand/25"
-              />
-              <Image
-                src={`/images/${p.file}`}
-                alt={p.name}
-                width={p.w}
-                height={p.h}
-                className={`relative w-auto select-none brightness-0 invert opacity-60 transition duration-[350ms] ease-[cubic-bezier(0,0,0.2,1)] group-hover/wall:opacity-30 group-hover/logo:invert-0 group-hover/logo:brightness-100 group-hover/logo:scale-105 group-hover/logo:!opacity-100 ${
-                  p.boost ? "h-11 sm:h-14" : "h-7 sm:h-8"
-                }`}
-                sizes="(max-width: 640px) 96px, 128px"
-              />
-            </div>
-          );
-        })}
+    <section className="network-board" aria-labelledby="trusted-by">
+      <h2 id="trusted-by">Our network.</h2>
+      <Reveal className="partner-grid" gap={60}>
+        {partners.map((p, i) => (
+          <div key={p.name} className={`partner-tile ${i >= PRIMARY_COUNT && !expanded ? "partner-overflow" : ""}`}>
+            <Image src={`/images/${p.file}`} alt={p.name} width={p.w} height={p.h} sizes="160px" className={p.boost ? "partner-boost" : undefined} />
+          </div>
+        ))}
       </Reveal>
-
-      {/* Mobile-only "Show more / less" toggle */}
-      <button
-        type="button"
-        onClick={() => setExpanded((v) => !v)}
-        className="mono-link mt-6 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.22em] text-brand sm:hidden"
-        aria-expanded={expanded}
-      >
-        {expanded ? (
-          <>Show less <span aria-hidden>↑</span></>
-        ) : (
-          <>
-            Show {partners.length - PRIMARY_COUNT} more partners{" "}
-            <span aria-hidden>→</span>
-          </>
-        )}
+      <button type="button" onClick={() => setExpanded((v) => !v)} className="partner-toggle" aria-expanded={expanded}>
+        {expanded ? "Show less ↑" : `Show ${partners.length - PRIMARY_COUNT} more partners →`}
       </button>
     </section>
   );

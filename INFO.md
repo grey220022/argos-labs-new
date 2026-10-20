@@ -10,7 +10,7 @@ Three service lines: **Agents · Cloud · Growth**.
 
 ## Routes and sections
 
-- `/`: hero and three-service graphic, partner wall, service cards, Agents, Cloud, Growth, closing banner and footer.
+- `/`: hero board, Agents/Cloud/Growth narratives, service-to-email selector, partner wall, Station F photographs and footer.
 - `/cloud`: AI/fintech cloud engineering, providers, model gateway, engineering capabilities, service comparison, billing/support and infrastructure metrics.
 - Metadata routes: `/sitemap.xml`, `/robots.txt`, `/opengraph-image`.
 - No additional product pages or translated routes currently exist.
@@ -29,5 +29,5 @@ Three service lines: **Agents · Cloud · Growth**.
 - Headquarters: Station F, 5 Parv. Alan Turing, 75013 Paris.
 - Logo kit: `public/press/argos-labs-logo-kit.zip`.
 - Current partner assets: `public/images/`, referenced by the partner/provider lists.
-- Hero video: local mobile video with existing desktop CDN source.
+- Hero video: local film with poster, pause control and reduced-motion fallback.
 - Fonts and visual rules: see `DESIGN.md` and the implementation in `app/layout.tsx`.

@@ -324,3 +324,12 @@ html:has([data-hero="pillars"] [data-pillar="growth"][data-cycle-active="true"])
 .mono-link:hover::after {
   transform: scaleX(1);
 }
+
+/* Shared close: readable type and flat surfaces, TASTE decision 2026-10-20. */
+.site-footer{width:calc(100% - 48px);max-width:1452px;margin:128px auto 0;padding:48px 24px;background:#191919;font-size:18px;color:#fafafa}
+.footer-top{display:flex;justify-content:space-between;align-items:center;gap:32px}
+.footer-top h2{font-size:40px;line-height:1.1;letter-spacing:-.035em;font-weight:600}
+.footer-top a{overflow-wrap:anywhere}
+.footer-bottom{margin-top:64px;display:flex;justify-content:space-between;gap:32px;align-items:flex-end}
+.footer-bottom address{font-style:normal}.footer-bottom>div{display:flex;flex-direction:column;gap:16px}
+@media(max-width:700px){.site-footer{width:calc(100% - 32px);margin:80px 16px 0;padding:32px 24px;font-size:16px}.footer-top,.footer-bottom{flex-direction:column;align-items:flex-start;gap:24px}.footer-top h2{font-size:32px}.footer-bottom{margin-top:40px}}
